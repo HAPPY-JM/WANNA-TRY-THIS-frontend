@@ -15,13 +15,13 @@ export const AppContext = createContext();
 
 const App = () => {
   console.log(questionList[0])
-  const data = "adsa"
+
   const [question] = useState(questionList);
 
 
 	return (
     <div className='App'>
-      <AppContext.Provider value={data}>
+      <AppContext.Provider value={question}>
       <BrowserRouter>
         <Header />
         <Routes>

@@ -1,8 +1,11 @@
-import React from 'react'
-
+import React, { useContext}from 'react'
+import { AppContext } from '../App';
 const Question = () => {
+    const question = useContext(AppContext)
+    console.log("-----------------------------")
+    console.log(question)
     return (<>
-        <span>질문입니다</span>
+        <span>{question}</span>
     </>
     )
 }

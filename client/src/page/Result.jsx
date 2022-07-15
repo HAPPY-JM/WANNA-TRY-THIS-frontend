@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
-import { AppContext } from '../App';
+import React from 'react';
+import Question from '../components/Question';
 
 const Result = () => {
 
-    const data = useContext(AppContext)
-    console.log(data)
+
     return (
         <>
-            <h3>aaa</h3>
+            <Question/>
         </>
     );
 }
