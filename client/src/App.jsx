@@ -16,7 +16,7 @@ export const AppContext = createContext();
 const App = () => {
   console.log(questionList[0])
   const data = "adsa"
-  const [question, setQuestion] = useState(questionList);
+  const [question] = useState(questionList);
 
 
 	return (

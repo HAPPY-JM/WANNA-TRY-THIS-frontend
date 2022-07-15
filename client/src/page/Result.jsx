@@ -3,7 +3,7 @@ import { AppContext } from '../App';
 
 const Result = () => {
 
-    const { data } = useContext(AppContext)
+    const data = useContext(AppContext)
     console.log(data)
     return (
         <>
