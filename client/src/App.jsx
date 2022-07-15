@@ -6,7 +6,7 @@ import Result from './page/Result'
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
 import Footer from './components/Footer'
-import  {questionList} from './data/QuestionList';
+import  {questionList,answerList} from './data/initialState';
 
 
 export const AppContext = createContext();
@@ -15,13 +15,13 @@ export const AppContext = createContext();
 
 const App = () => {
   console.log(questionList[0])
-
+  console.log("----------------")
   const [question] = useState(questionList);
-
-
+  const [answer] = useState(answerList);
+console.log(question,answer)
 	return (
     <div className='App'>
-      <AppContext.Provider value={question}>
+      <AppContext.Provider value={{question,answer}}>
       <BrowserRouter>
         <Header />
         <Routes>
