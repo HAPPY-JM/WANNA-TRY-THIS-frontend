@@ -1,12 +1,16 @@
-import React,{ useContext} from "react"
-import { AppContext } from "../App";
+import React from "react"
 import styled from "styled-components";
+
+
+
 
 const Abutton = styled.button`
     height: 2.25rem;
     font-size: 1rem;
-      background: #228be6;
-    &:hover{
+    border-radius: 10px;
+    margin-left: 10px;
+      background: white;
+    /* &:hover{
         background: #339af0;
     }
     &:active{
@@ -14,25 +18,25 @@ const Abutton = styled.button`
             & + & {
         margin-left: 1rem;
     }
-    }
+    } */
 `
-    
 
 
 const Answer = () => {
-        const {answer} = useContext(AppContext)
-    console.log("-----------------------")
-    console.log(answer)
-    const firstAnswer = answer[0]
-    console.log(firstAnswer)
-    console.log("-----------------------")
-    const listAnswer = firstAnswer.map((answer) => (
-        <Abutton>{ answer}</Abutton>
-    ))
 
+    const answerList1 = ["10~20대", "30대~40대", "50대 이상"];
+    const answerList2 = ["좋음", "그저 그럼", "나쁨"];
+    const answerList3 = ["육류", "해산물", "그외"];
+    const answerList4 = ["만원 이하", "만원~3만원", "3만원 이상"]
+    //   ["10~20대", "30대~40대", "50대 이상"],
+    //   ["좋음", "그저 그럼", "나쁨"],
+    //   ["육류", "해산물", "그외"],
+    //   ["만원 이하", "만원~3만원", "3만원 이상"]   
+    
+    const answerButton = answerList1.map((el,idx)=> <Abutton>{el}</Abutton> )
     return (
         <>
-            <div>{ listAnswer}</div>
+            <div>{ answerButton}</div>
         </>
     )
 }
