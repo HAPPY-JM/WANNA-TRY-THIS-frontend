@@ -13,11 +13,9 @@ const Container = styled.div`
 `
 const Survey = () => {
     return (
-     <>
         <Container>
             <Question />
         </Container>
-    </>
     )
 }
 

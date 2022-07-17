@@ -5,7 +5,7 @@ import Main from './page/Main';
 import Result from './page/Result'
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
-// import Footer from './components/Footer'
+
 
 
 
@@ -23,7 +23,6 @@ const App = () => {
           <Route path="/Result" element={<Result />}></Route>
           <Route path="*" element ={<NotFound />} ></Route>
         </Routes>
-        {/* <Footer /> */}
       </BrowserRouter>
 	</div>
 	);
