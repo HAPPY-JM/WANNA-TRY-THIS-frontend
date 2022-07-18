@@ -9,8 +9,7 @@ import Survey from "./page/Survey";
 
 const App = () => {
   return (
-    <div className=
-          "App">
+    <div className="App">
       <BrowserRouter>
         <Header />
         <Routes>
