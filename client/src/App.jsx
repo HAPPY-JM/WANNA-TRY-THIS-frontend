@@ -1,15 +1,23 @@
-import React from 'react';
+import React , {createContext,useState }from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Main from './page/Main';
 import Result from './page/Result';
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
-// import Footer from './components/Footer'
+
+
+export const AnswerDataContext = createContext();
+
+
 
 const App = () => {
-  return (
-    <div className="App">
+  const [answerData ,setAnswerData] =useState([])
+
+
+	return (
+    <div className='App'>
+      <AnswerDataContext.Provider value={{answerData ,setAnswerData}}>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -20,8 +28,9 @@ const App = () => {
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>
-    </div>
-  );
-};
+      </AnswerDataContext.Provider>
+	</div>
+	);
+}
 
 export default App;

@@ -1,7 +1,11 @@
-import React from 'react';
+import React, {useContext }from 'react';
+import { AnswerDataContext } from '../App';
 
 const Result = () => {
-  return <div>확인</div>;
-};
+   const { answerData } = useContext(AnswerDataContext)
+    return (
+            <div>{answerData}</div>
+    );
+}
 
 export default Result;
