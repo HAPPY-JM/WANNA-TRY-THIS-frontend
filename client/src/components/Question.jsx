@@ -32,26 +32,6 @@ const Abutton = styled.button`
   background: white;
 `;
 
-    const QuestionView = styled.div`
-        height: 150px;
-        width: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        background:#F5F5F5;
-        border-radius: 10px;
-    `
-
-
-    const Abutton = styled.button`
-        height: 2.25rem;
-        font-size: 1rem;
-        border-radius: 10px;
-        margin-left: 10px;
-        background: white;
-    `
-
 
 
 const questionList = [
@@ -67,16 +47,6 @@ const questionList = [
         ["만원 이하", "만원~3만원", "3만원 이상"]]
 
 const Question = () => {
-  const [question, setQuestion] = useState('나이가 어떻게 되시나요?');
-  const [answer, setAnswer] = useState(['10~20대', '30대~40대', '50대 이상']);
-  const answerList = answer.map((el, idx) => (
-    <Abutton key={`button ${idx}`}>{el}</Abutton>
-  ));
-  const onClickAnswer = () => {
-    console.log('클릭했다리');
-    setQuestion();
-    setAnswer();
-  };
 
     const [question, setQuestion] = useState("나이가 어떻게 되시나요?")
     const [answer, setAnswer] = useState(["10~20대", "30대~40대", "50대 이상"])
