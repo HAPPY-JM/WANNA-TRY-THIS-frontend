@@ -2,11 +2,9 @@ import swal from 'sweetalert';
 
 const handleAlert = () => {
   swal({
-    title: 'Service name',
+    title: '로그인 해주세요!',
     content: 'input',
     buttons: ['Cancel', 'Add'],
-  }).then((result) => {
-    const lower = result.toLowerCase();
-    const num = result >= 0;
-  });
-};
+  }).then(result => {
+  })
+}

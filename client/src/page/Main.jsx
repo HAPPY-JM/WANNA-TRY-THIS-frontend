@@ -43,9 +43,12 @@ const Main = () => {
 				<Link to ="/Survey">
 					<MainButton primary>골라볼래?</MainButton>
 				</Link>
-				<a herf="localhost:5000/api/auth/kakao">
-					<MainButton primary >카카오</MainButton>
-				</a>	
+				<a href="http://localhost:5000/api/auth/google" target="_blank" rel="noreferrer">
+          <button>Click</button>
+        </a>
+				<a href="http://localhost:5000/api/auth/kakao" target="_blank" rel="noreferrer">
+          <button>Click</button>
+        </a>
 					<MainButton primary herf="/localhost:5000/api/auth/google">구글</MainButton>
 			</ButtonContainer>
 		</Container>
