@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 
 const Container = styled.div`
-  padding: 10px;
+	padding: 10px;
  background-color:whitesmoke;
  display : flex;
  flex-direction : column;
@@ -39,10 +39,14 @@ const Main = () => {
 		<Container>
 			<Title>이거 머글랭?</Title>
 			 <ButtonContainer>
-				<MainButton>골라줄게!</MainButton>
+				<MainButton>골라줄개!</MainButton>
 				<Link to ="/Survey">
 					<MainButton primary>골라볼래?</MainButton>
 				</Link>
+				<a herf="localhost:5000/api/auth/kakao">
+					<MainButton primary >카카오</MainButton>
+				</a>	
+					<MainButton primary herf="/localhost:5000/api/auth/google">구글</MainButton>
 			</ButtonContainer>
 		</Container>
 	);

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
 
-function Header(props) {
-    return (
-			<h1>헤더입니다.</h1>
-    );
-}
+const Header = () => {
+  const [isLogIn, setIsLogIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLogIn(true);
+    }
+  }, []);
+
+  return <></>;
+};
 
 export default Header;

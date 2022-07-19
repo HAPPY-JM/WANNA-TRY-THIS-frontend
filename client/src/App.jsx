@@ -1,10 +1,10 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import Main from "./page/Main";
-import Result from "./page/Result";
-import NotFound from "./page/NotFound";
-import Survey from "./page/Survey";
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Main from './page/Main';
+import Result from './page/Result';
+import NotFound from './page/NotFound';
+import Survey from './page/Survey';
 // import Footer from './components/Footer'
 
 const App = () => {
