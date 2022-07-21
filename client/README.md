@@ -38,7 +38,7 @@
       ***
 
   - **백엔드** <br>
- <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100"> <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100">
+   <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100"> <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100">
     <br>
     <br>
 
