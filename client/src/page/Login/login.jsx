@@ -5,6 +5,5 @@ const handleAlert = () => {
     title: '로그인 해주세요!',
     content: 'input',
     buttons: ['Cancel', 'Add'],
-  }).then(result => {
-  })
-}
+  }).then((result) => {});
+};
