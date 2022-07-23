@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'NEXON Lv1 Gothic OTF';
 `;
 
 const ButtonContainer = styled.div`
@@ -37,7 +38,7 @@ const Main = () => {
     <Container>
       <Title>이거 머글랭?</Title>
       <ButtonContainer>
-        <MainButton>골라줄개!</MainButton>
+        <MainButton>골라줄게!</MainButton>
         <Link to="/Survey">
           <MainButton primary>골라볼래?</MainButton>
         </Link>
