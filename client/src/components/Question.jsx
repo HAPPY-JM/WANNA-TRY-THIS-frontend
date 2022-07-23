@@ -52,7 +52,7 @@ const Question = () => {
     ['middle', '30대~40대', 'age'],
     ['old', '50대 이상', 'age'],
   ]);
-  const { answerData, setAnswerData } = useContext(AnswerDataContext);
+  const {  setAnswerData } = useContext(AnswerDataContext);
 
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
@@ -93,6 +93,12 @@ const Question = () => {
         ['middle', '만원~3만원', 'money'],
         ['expensive', '3만원 이상', 'money'],
       ]);
+ } else if (question === questionList[3][0]) {
+         setAnswerData((el) => {
+        let data = { ...el };
+        data[name] = value;
+        return data;
+      });
     }
   };
 
