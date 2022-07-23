@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -55,8 +55,14 @@ const Question = () => {
   const { answerData, setAnswerData } = useContext(AnswerDataContext);
 
   const onClickSubmit = (e) => {
+    const { name, value } = e.target;
     // 코드 리팩토링 에정
-    if (question === questionList[0][0]) {
+ if (question === questionList[0][0]) {
+      setAnswerData((el) => {
+        let data = { ...el };
+        data[name] = value;
+        return data;
+      });
       setQuestion('오늘 기분은 어떤가요?');
       setAnswer([
         ['good', '좋음', 'mood'],
@@ -64,6 +70,11 @@ const Question = () => {
         ['bad', '나쁨', 'mood'],
       ]);
     } else if (question === questionList[1][0]) {
+      setAnswerData((el) => {
+        let data = { ...el };
+        data[name] = value;
+        return data;
+      });
       setQuestion('오늘 땡기는 종류는 무엇인가요?');
       setAnswer([
         ['meat', '육류', 'ingredient'],
@@ -71,45 +82,85 @@ const Question = () => {
         ['etc', '그외', 'ingredient'],
       ]);
     } else if (question === questionList[2][0]) {
+      setAnswerData((el) => {
+        let data = { ...el };
+        data[name] = value;
+        return data;
+      });
       setQuestion('1인분 예산을 알려주세요.');
       setAnswer([
         ['cheap', '만원 이하', 'money'],
         ['middle', '만원~3만원', 'money'],
         ['expensive', '3만원 이상', 'money'],
       ]);
-    } else {
     }
   };
 
-  const onClickAnswer = (e) => {
-    const { name, value } = e.target;
-    setAnswerData((el) => {
-      let data = { ...el };
-      data[name] = value;
-      console.log(data);
-      return data;
-    });
-  };
-  const submitinput =
-    question === '1인분 예산을 알려주세요.' ? (
-      <Link to="/Result">
-        <SubmitInput key="last" type="submit" />
-      </Link>
-    ) : (
-      <SubmitInput key="first" type="submit" onClick={onClickSubmit} />
-    );
+  const onClickBack = () => {
 
-  const answerBtn = answer.map((el, idx) => (
-    <AnswerButton onClick={onClickAnswer} key={idx} value={el[0]} name={el[2]}>
-      {el[1]}
-    </AnswerButton>
-  ));
+    if (question === questionList[1][0]) {
+      setQuestion('나이가 어떻게 되시나요?');
+        setAnswer([
+        ['young', '10~20대', 'age'],
+        ['middle', '30대~40대', 'age'],
+        ['old', '50대 이상', 'age'],
+        ]);
+
+    }
+    else if (question === questionList[2][0]) {
+      setQuestion('오늘 기분은 어떤가요?');
+      setAnswer([
+        ['good', '좋음', 'mood'],
+        ['soso', '그저 그럼', 'mood'],
+        ['bad', '나쁨', 'mood'],
+      ]);
+    } 
+    else if (question === questionList[3][0]) {
+      
+      setQuestion('오늘 땡기는 종류는 무엇인가요?');
+    setAnswer([
+        ['meat', '육류', 'ingredient'],
+        ['seafood', '해산물', 'ingredient'],
+        ['etc', '그외', 'ingredient'],
+      ]);
+    }
+  };
+  console.log(answer)
+  const backButn =
+    question !== '나이가 어떻게 되시나요?' ? (
+      <button onClick={onClickBack}>뒤로가기</button>
+    ) : (
+      false
+    );
+  const answerBtn = answer.map((el, idx) =>
+    question !== '1인분 예산을 알려주세요.' ? (
+      <AnswerButton
+        onClick={onClickSubmit}
+        key={`answer+${idx}`}
+        value={el[0]}
+        name={el[2]}
+      >
+        {el[1]}
+      </AnswerButton>
+    ) : (
+      <Link to="/Result">
+        <AnswerButton
+          onClick={onClickSubmit}
+          key={`answer+${idx}`}
+          value={el[0]}
+          name={el[2]}
+        >
+          {el[1]}
+        </AnswerButton>
+      </Link>
+    ),
+  );
 
   return (
     <Container>
       <QuestionView>{question}</QuestionView>
+      {backButn}
       {answerBtn}
-      {submitinput}
     </Container>
   );
 };
