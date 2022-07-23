@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+<h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
+<center> <img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </center>
+<br>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 1. 기획 의도 & 목적
+> ### 🤔"오늘은 뭐 먹지?" <br>
+> 매일 하게 되는 메뉴 고민! <br>
+> 식사 시간마다 무엇을 먹을지 고민스러운 분들에게 조금이나마 선택지를 좁혀드리고자 만든 웹서비스입니다.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## 2. 웹 서비스의 주제 및, 최종적인 메인 기능과 서브 기능 설명
+### ✨ 주제: 
+- **메인 기능**
+   1. 질문을 통한 메뉴추천
+   2. 로그인 하고 추천 받은 음식을 저장하면 마이페이지에서 그동안 추천받은 음식의 통계 확인
+   3. 소셜 로그인
+   ***
+- **서브 기능**
+   1. 추천받은 음식 공유
+   2. 마이페이지
+   3.
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 3. 프로젝트만의 차별점, 기대 효과
+- 기존 서비스의 단점 -> 본 프로젝트의 장점
+- 본 웹서비스의 사용자가 경험할 효과 및 장점
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<br>
 
-### `npm test`
+## 4. 프로젝트 구성
+### 🔧 사용 스택
+  - **프론트엔드** <br>
+    <img src="/uploads/dce74004fb755de752fcf17282070fc2/image.png" width="100" height="100">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      ***
 
-### `npm run build`
+  - **백엔드** <br>
+   <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100"> <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100">
+    <br>
+    <br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🎨 기획
+- **와이어프레임** <br>
+   <img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100"> <br>
+   
+   <br>
+- **스토리보드 및 유저 시나리오**
+  - 홈 화면에서 어떤 버튼을 클릭하여 어떤 페이지로 이동할 수 있다.
+  - 이 버튼을 클릭하면 이런 웹 서비스가 실행된다.
+  
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 5. 구성원 역할
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+|  이름  |   역할   | 
+| :------: | --------- |
+| 서정민 | 프론트엔드, 팀장 |
+| 장기성 | 프론트엔드 |
+| 김동화 |   백엔드   |
+| 이채연 |   백엔드   |
