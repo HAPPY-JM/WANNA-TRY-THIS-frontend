@@ -1,4 +1,4 @@
-import React, { useState, useContext,useEffect } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -52,12 +52,12 @@ const Question = () => {
     ['middle', '30대~40대', 'age'],
     ['old', '50대 이상', 'age'],
   ]);
-  const {  setAnswerData } = useContext(AnswerDataContext);
+  const { setAnswerData } = useContext(AnswerDataContext);
 
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
     // 코드 리팩토링 에정
- if (question === questionList[0][0]) {
+    if (question === questionList[0][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
@@ -93,8 +93,8 @@ const Question = () => {
         ['middle', '만원~3만원', 'money'],
         ['expensive', '3만원 이상', 'money'],
       ]);
- } else if (question === questionList[3][0]) {
-         setAnswerData((el) => {
+    } else if (question === questionList[3][0]) {
+      setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
         return data;
@@ -103,35 +103,30 @@ const Question = () => {
   };
 
   const onClickBack = () => {
-
     if (question === questionList[1][0]) {
       setQuestion('나이가 어떻게 되시나요?');
-        setAnswer([
+      setAnswer([
         ['young', '10~20대', 'age'],
         ['middle', '30대~40대', 'age'],
         ['old', '50대 이상', 'age'],
-        ]);
-
-    }
-    else if (question === questionList[2][0]) {
+      ]);
+    } else if (question === questionList[2][0]) {
       setQuestion('오늘 기분은 어떤가요?');
       setAnswer([
         ['good', '좋음', 'mood'],
         ['soso', '그저 그럼', 'mood'],
         ['bad', '나쁨', 'mood'],
       ]);
-    } 
-    else if (question === questionList[3][0]) {
-      
+    } else if (question === questionList[3][0]) {
       setQuestion('오늘 땡기는 종류는 무엇인가요?');
-    setAnswer([
+      setAnswer([
         ['meat', '육류', 'ingredient'],
         ['seafood', '해산물', 'ingredient'],
         ['etc', '그외', 'ingredient'],
       ]);
     }
   };
-  console.log(answer)
+  console.log(answer);
   const backButn =
     question !== '나이가 어떻게 되시나요?' ? (
       <button onClick={onClickBack}>뒤로가기</button>
