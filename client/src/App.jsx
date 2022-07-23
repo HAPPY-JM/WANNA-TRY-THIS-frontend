@@ -5,25 +5,33 @@ import Main from './page/Main';
 import Result from './page/Result';
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 export const AnswerDataContext = createContext();
+const quertClient = new QueryClient();
 
 const App = () => {
-  const [answerData, setAnswerData] = useState([]);
+  const [answerData, setAnswerData] = useState({
+    mood: '',
+    age: '',
+    money: '',
+    ingredient: '',
+  });
 
   return (
     <div className="App">
       <AnswerDataContext.Provider value={{ answerData, setAnswerData }}>
-        <BrowserRouter>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Main />}></Route>
-            <Route path="/Survey" element={<Survey />}></Route>
-            <Route path="/Result" element={<Result />}></Route>
-            <Route path="*" element={<NotFound />}></Route>
-          </Routes>
-          {/* <Footer /> */}
-        </BrowserRouter>
+        <QueryClientProvider client={quertClient}>
+          <BrowserRouter>
+            <Header />
+            <Routes>
+              <Route path="/" element={<Main />}></Route>
+              <Route path="/Survey" element={<Survey />}></Route>
+              <Route path="/Result" element={<Result />}></Route>
+              <Route path="*" element={<NotFound />}></Route>
+            </Routes>
+          </BrowserRouter>
+        </QueryClientProvider>
       </AnswerDataContext.Provider>
     </div>
   );
