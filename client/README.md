@@ -45,8 +45,7 @@
 ### 🎨 기획
 - **와이어프레임** <br>
    <img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100"> <br>
-   (https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962)
-
+   
    <br>
 - **스토리보드 및 유저 시나리오**
   - 홈 화면에서 어떤 버튼을 클릭하여 어떤 페이지로 이동할 수 있다.
