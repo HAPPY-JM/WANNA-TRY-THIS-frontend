@@ -40,7 +40,7 @@ const Button = styled.button`
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
   console.log(answerData);
-  const { data} = useQuery('food', () => {
+  const { data } = useQuery('food', () => {
     return axios.get('http://localhost:5000/api/food');
   });
 
