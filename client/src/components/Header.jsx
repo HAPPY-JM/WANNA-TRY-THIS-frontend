@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import LogInButton from './LogInButton';
 
 const Container = styled.div`
   width: 100%;
   height: 100px;
-  background-color: whitesmoke;
+  background: linear-gradient(to right, #d8e9f0, pink);
   display: flex;
-  flex-direction: column;
+  justify-content: right;
   align-items: center;
 `;
 
@@ -21,7 +22,11 @@ const Container = styled.div`
 //   }, []);
 
 const Header = () => {
-  <Container></Container>;
+  return (
+    <Container>
+      <LogInButton />
+    </Container>
+  );
 };
 
 export default Header;
