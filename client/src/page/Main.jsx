@@ -3,40 +3,47 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  padding: 10px;
-  background-color: whitesmoke;
+  width: 100%;
+  margin-top: 5rem;
+  background-color: white;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   font-family: 'NEXON Lv1 Gothic OTF';
 `;
 
 const ButtonContainer = styled.div`
-  margin-top: 50px;
+  padding: 3rem;
 `;
-const Title = styled.h1`
-  font-weight: 800;
-  text-align: center;
-`;
+
 const MainButton = styled.button`
-  border: none;
-  color: white;
-  width: 100px;
-  height: 100px;
+  width: 15rem;
+  height: 15rem;
+  font-family: 'NEXONLv1GothicBold';
+  font-size: 2rem;
   text-align: center;
-  border-radius: 10px;
-  background-color: ${(props) => (props.primary ? 'black' : 'white')};
-  color: ${(props) => (props.primary ? 'white' : 'black')};
+  border: none;
+  border-radius: 2rem;
+  background-color: ${(props) => (props.primary ? '#FEE6E6' : '#D9EAF1')};
+  color: ${(props) => (props.primary ? '#F38F88' : '#70C4E7')};
 
   + button {
-    margin-left: 100px;
+    margin-left: 2rem;
   }
 `;
 
 const Main = () => {
   return (
     <Container>
-      <Title>이거 머글랭?</Title>
+      <div className="title">
+        <img
+          className="title-logo"
+          alt="타이틀 로고"
+          src="../logo/logo-wanna-try-this.png"
+          width={500}
+        />
+      </div>
       <ButtonContainer>
         <MainButton>골라줄게!</MainButton>
         <Link to="/Survey">
