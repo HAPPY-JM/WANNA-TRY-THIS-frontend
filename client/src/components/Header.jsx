@@ -22,11 +22,11 @@ const Container = styled.div`
 //     }
 //   }, []);
 
-
+// array1.find(element => element > 10);
 
 const Header = () => {
   const path_list = ["/","/Survey","/Result"]
- if(path_list.filter(path => path !==window.location.pathname))return null
+ if(path_list.find(path => path ===window.location.pathname)===undefined)return null
 
   return (
     <Container>
