@@ -5,10 +5,11 @@ import LogInButton from './LogInButton';
 const Container = styled.div`
   width: 100%;
   height: 100px;
-  background: linear-gradient(to right, #d8e9f0, pink);
+  background: #00000071;
   display: flex;
   justify-content: right;
   align-items: center;
+  z-index: 99;
 `;
 
 // const Header = () => {
@@ -22,6 +23,7 @@ const Container = styled.div`
 //   }, []);
 
 const Header = () => {
+  if (window.location.pathname === '*') return null;
   return (
     <Container>
       <LogInButton />

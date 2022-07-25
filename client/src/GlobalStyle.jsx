@@ -4,7 +4,6 @@ const GlobalStyle = createGlobalStyle`
      html,
       body {
         width: 100%;
-        height: 100%;
         background: linear-gradient(to right, #D8E9F0, pink);
         z-index: 0;
       }

@@ -2,7 +2,6 @@ import React from 'react';
 import Question from '../components/Question';
 import styled from 'styled-components';
 import ProgressBar from '../components/ProgressBar';
-import GlobalStyle from '../GlobalSyyle';
 
 const Container = styled.div`
   width: 100%;
@@ -16,7 +15,6 @@ const Container = styled.div`
 const Survey = () => {
   return (
     <Container>
-      <GlobalStyle />
       <ProgressBar />
       <Question />
     </Container>

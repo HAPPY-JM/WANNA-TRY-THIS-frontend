@@ -35,22 +35,15 @@ const AnswerButton = styled.button`
   background: white;
   margin: 0.5rem;
 `;
-
-const SubmitInput = styled.input`
-  border-radius: 10px;
-  margin-left: 10px;
-  background: white;
-`;
-
 const questionList = [
-  ['나이가 어떻게 되시나요?'],
+  ['나이를 알려주세요.'],
   ['오늘 기분은 어떤가요?'],
   ['오늘 땡기는 종류는 무엇인가요?'],
-  ['1인분 예산을 알려주세요.'],
+  ['1인분 예산은 어느 정도 인가요?'],
 ];
 
 const Question = () => {
-  const [question, setQuestion] = useState('나이가 어떻게 되시나요?');
+  const [question, setQuestion] = useState('나이를 알려주세요.');
   const [answer, setAnswer] = useState([
     ['young', '20대 이하', 'age'],
     ['middle', '30대~40대', 'age'],
@@ -91,7 +84,7 @@ const Question = () => {
         data[name] = value;
         return data;
       });
-      setQuestion('1인분 예산을 알려주세요.');
+      setQuestion('1인분 예산은 어느 정도 인가요?');
       setAnswer([
         ['cheap', '만원 이하', 'money'],
         ['middle', '만원~3만원', 'money'],
@@ -108,7 +101,7 @@ const Question = () => {
 
   const onClickBack = () => {
     if (question === questionList[1][0]) {
-      setQuestion('나이가 어떻게 되시나요?');
+      setQuestion('나이를 알려주세요.');
       setAnswer([
         ['young', '10~20대', 'age'],
         ['middle', '30대~40대', 'age'],
@@ -133,14 +126,14 @@ const Question = () => {
   console.log(answer);
 
   const backBtn =
-    question !== '나이가 어떻게 되시나요?' ? (
+    question !== '나이를 알려주세요.' ? (
       <button onClick={onClickBack}>뒤로가기</button>
     ) : (
       false
     );
 
   const answerBtn = answer.map((el, idx) =>
-    question !== '1인분 예산을 알려주세요.' ? (
+    question !== '1인분 예산은 어느 정도 인가요?' ? (
       <AnswerButton
         onClick={onClickSubmit}
         key={`answer+${idx}`}
