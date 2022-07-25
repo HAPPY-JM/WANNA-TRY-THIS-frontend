@@ -17,10 +17,10 @@ const App = () => {
     money: '',
     ingredient: '',
   });
-
+const [barcount ,setBarcount] = useState(0)
   return (
     <div className="App">
-      <AnswerDataContext.Provider value={{ answerData, setAnswerData }}>
+      <AnswerDataContext.Provider value={{ answerData, setAnswerData,barcount ,setBarcount }}>
         <QueryClientProvider client={quertClient}>
           <BrowserRouter>
             <Header />

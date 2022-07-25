@@ -49,7 +49,7 @@ const Question = () => {
     ['middle', '30대~40대', 'age'],
     ['old', '50대 이상', 'age'],
   ]);
-  const { setAnswerData } = useContext(AnswerDataContext);
+  const { setAnswerData  ,barcount ,setBarcount } = useContext(AnswerDataContext);
 
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
@@ -60,6 +60,7 @@ const Question = () => {
         data[name] = value;
         return data;
       });
+      setBarcount(barcount+1)
       setQuestion('오늘 기분은 어떤가요?');
       setAnswer([
         ['good', '좋음', 'mood'],
@@ -72,6 +73,7 @@ const Question = () => {
         data[name] = value;
         return data;
       });
+      setBarcount(barcount+1)
       setQuestion('오늘 땡기는 종류는 무엇인가요?');
       setAnswer([
         ['meat', '육류', 'ingredient'],
@@ -84,6 +86,7 @@ const Question = () => {
         data[name] = value;
         return data;
       });
+      setBarcount(barcount+1)
       setQuestion('1인분 예산은 어느 정도 인가요?');
       setAnswer([
         ['cheap', '만원 이하', 'money'],
@@ -96,6 +99,7 @@ const Question = () => {
         data[name] = value;
         return data;
       });
+      setBarcount(barcount+1)
     }
   };
 
@@ -107,6 +111,7 @@ const Question = () => {
         ['middle', '30대~40대', 'age'],
         ['old', '50대 이상', 'age'],
       ]);
+      setBarcount(barcount-1)
     } else if (question === questionList[2][0]) {
       setQuestion('오늘 기분은 어떤가요?');
       setAnswer([
@@ -114,6 +119,7 @@ const Question = () => {
         ['soso', '그저 그럼', 'mood'],
         ['bad', '나쁨', 'mood'],
       ]);
+      setBarcount(barcount-1)
     } else if (question === questionList[3][0]) {
       setQuestion('오늘 땡기는 종류는 무엇인가요?');
       setAnswer([
@@ -121,6 +127,7 @@ const Question = () => {
         ['seafood', '해산물', 'ingredient'],
         ['etc', '그외', 'ingredient'],
       ]);
+      setBarcount(barcount-1)
     }
   };
   console.log(answer);
