@@ -22,7 +22,6 @@ const Container = styled.div`
 //     }
 //   }, []);
 
-// array1.find(element => element > 10);
 
 const Header = () => {
   const path_list = ["/","/Survey","/Result"]
