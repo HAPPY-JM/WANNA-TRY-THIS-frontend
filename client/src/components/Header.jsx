@@ -22,8 +22,12 @@ const Container = styled.div`
 //     }
 //   }, []);
 
+
+
 const Header = () => {
-  if (window.location.pathname === '*') return null;
+  const path_list = ["/","/Survey","/Result"]
+ if(path_list.filter(path => path !==window.location.pathname))return null
+
   return (
     <Container>
       <LogInButton />
