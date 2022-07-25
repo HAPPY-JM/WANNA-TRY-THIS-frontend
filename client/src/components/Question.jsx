@@ -66,7 +66,7 @@ const answer_list = [
 
 const Question = () => {
   const [question, setQuestion] = useState(question_list[0][0]);
-  const [answer, setAnswer] = useState(answer_list[0]);
+  const [answers, setAnswer] = useState(answer_list[0]);
   const { setAnswerData, barcount, setBarcount } =
     useContext(AnswerDataContext);
 
@@ -74,8 +74,8 @@ const Question = () => {
     const { name, value } = e.target;
     // 코드 리팩토링 에정
     if (question === question_list[0][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -83,8 +83,8 @@ const Question = () => {
       setQuestion(question_list[1][0]);
       setAnswer(answer_list[1]);
     } else if (question === question_list[1][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -92,8 +92,8 @@ const Question = () => {
       setQuestion(question_list[2][0]);
       setAnswer(answer_list[2]);
     } else if (question === question_list[2][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -101,8 +101,8 @@ const Question = () => {
       setQuestion(question_list[3][0]);
       setAnswer(answer_list[3]);
     } else if (question === question_list[3][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -125,7 +125,7 @@ const Question = () => {
       setBarcount(barcount - 1);
     }
   };
-  console.log(answer);
+  console.log(answers);
 
   const backBtn =
     question !== '나이를 알려주세요.' ? (
@@ -134,25 +134,25 @@ const Question = () => {
       false
     );
 
-  const answerBtn = answer.map((el, idx) =>
+  const answerBtn = answers.map((answer, idx) =>
     question !== '1인분 예산은 어느 정도 인가요?' ? (
       <AnswerButton
         onClick={onClickSubmit}
         key={`answer+${idx}`}
-        value={el[0]}
-        name={el[2]}
+        value={answer[0]}
+        name={answer[2]}
       >
-        {el[1]}
+        {answer[1]}
       </AnswerButton>
     ) : (
       <Link to="/Result">
         <AnswerButton
           onClick={onClickSubmit}
           key={`answer+${idx}`}
-          value={el[0]}
-          name={el[2]}
+          value={answer[0]}
+          name={answer[2]}
         >
-          {el[1]}
+          {answer[1]}
         </AnswerButton>
       </Link>
     ),
