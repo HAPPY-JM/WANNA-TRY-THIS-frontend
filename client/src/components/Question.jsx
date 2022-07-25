@@ -4,40 +4,44 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const Container = styled.div`
-  padding: 10px;
-  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const ContainerButton = styled.div``;
+const ContainerButton = styled.div`
+  width: 4rem;
+  height: 3rem;
+  font-size: 2rem;
+`;
 
 const QuestionView = styled.div`
   height: 150px;
-  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1rem;
-  background: #f5f5f5;
+  font-size: 3rem;
+  color: #484848;
   border-radius: 10px;
 `;
 
 const AnswerButton = styled.button`
-  height: 2.25rem;
-  font-size: 1rem;
-  border-radius: 10px;
-  margin-left: 10px;
+  width: 10rem;
+  height: 6rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
   background: white;
+  margin: 0.5rem;
 `;
+
 const SubmitInput = styled.input`
-  height: 2.25rem;
-  font-size: 1rem;
   border-radius: 10px;
   margin-left: 10px;
   background: white;
 `;
+
 const questionList = [
   ['나이가 어떻게 되시나요?'],
   ['오늘 기분은 어떤가요?'],
@@ -48,7 +52,7 @@ const questionList = [
 const Question = () => {
   const [question, setQuestion] = useState('나이가 어떻게 되시나요?');
   const [answer, setAnswer] = useState([
-    ['young', '10~20대', 'age'],
+    ['young', '20대 이하', 'age'],
     ['middle', '30대~40대', 'age'],
     ['old', '50대 이상', 'age'],
   ]);
@@ -79,7 +83,7 @@ const Question = () => {
       setAnswer([
         ['meat', '육류', 'ingredient'],
         ['seafood', '해산물', 'ingredient'],
-        ['etc', '그외', 'ingredient'],
+        ['etc', '비건', 'ingredient'],
       ]);
     } else if (question === questionList[2][0]) {
       setAnswerData((el) => {
@@ -91,7 +95,7 @@ const Question = () => {
       setAnswer([
         ['cheap', '만원 이하', 'money'],
         ['middle', '만원~3만원', 'money'],
-        ['expensive', '3만원 이상', 'money'],
+        ['any', '상관없음', 'money'],
       ]);
     } else if (question === questionList[3][0]) {
       setAnswerData((el) => {
@@ -127,12 +131,14 @@ const Question = () => {
     }
   };
   console.log(answer);
-  const backButn =
+
+  const backBtn =
     question !== '나이가 어떻게 되시나요?' ? (
       <button onClick={onClickBack}>뒤로가기</button>
     ) : (
       false
     );
+
   const answerBtn = answer.map((el, idx) =>
     question !== '1인분 예산을 알려주세요.' ? (
       <AnswerButton
@@ -160,7 +166,7 @@ const Question = () => {
   return (
     <Container>
       <QuestionView>{question}</QuestionView>
-      {backButn}
+      {backBtn}
       {answerBtn}
     </Container>
   );
