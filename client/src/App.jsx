@@ -6,7 +6,7 @@ import Result from './page/Result';
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
 import { QueryClient, QueryClientProvider } from 'react-query';
-
+import GlobalStyle from './GlobalStyle';
 export const AnswerDataContext = createContext();
 const quertClient = new QueryClient();
 
@@ -31,6 +31,7 @@ const App = () => {
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>
+          <GlobalStyle />
         </QueryClientProvider>
       </AnswerDataContext.Provider>
     </div>

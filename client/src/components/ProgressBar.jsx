@@ -13,6 +13,7 @@ function ProgressBar() {
   }
 
   return (
+    // 여기 부분을 연결해주면 됩니다.
     <Container
       onClick={() => {
         add_count();

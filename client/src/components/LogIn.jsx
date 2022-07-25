@@ -13,21 +13,21 @@ class LogIn extends Component {
     this.setState({ [name]: value });
   }; //계산된 속성명 사용
 
-  loginClickHandler = () => {
-    const { email, password } = this.state;
-    fetch('http://????/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res));
-  };
+  // loginClickHandler = () => {
+  //   const { email, password } = this.state;
+  //   fetch('http://????/auth/login', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       email,
+  //       password,
+  //     }),
+  //   })
+  //     .then((res) => res.json())
+  //     .then((res) => console.log(res));
+  // };
 
   render() {
     const { isOpen, close } = this.props; //아까 버튼에서 props로 가져온것
