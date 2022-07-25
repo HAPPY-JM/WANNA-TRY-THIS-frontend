@@ -13,7 +13,7 @@ const mypage = () => {
   return (
     <Container>
       <Header />
-      //chart
+
     </Container>
   );
 };
