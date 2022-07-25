@@ -4,12 +4,12 @@ import styled from 'styled-components';
 const Header = () => {
   const [isLogIn, setIsLogIn] = useState(false);
 
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsLogIn(true);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token');
+  //   if (token) {
+  //     setIsLogIn(true);
+  //   }
+  // }, []);
 
   return <></>;
 };
