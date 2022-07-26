@@ -6,8 +6,13 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+`;
+
+const ContainerQuestion = styled.div`
+  width: 4rem;
+  height: 3rem;
+  font-size: 2rem;
 `;
 
 const QuestionView = styled.div`
@@ -20,11 +25,6 @@ const QuestionView = styled.div`
   border-radius: 10px;
 `;
 
-const AnswerContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
 const AnswerButton = styled.button`
   width: 10rem;
   height: 6rem;
@@ -35,22 +35,40 @@ const AnswerButton = styled.button`
   background: white;
   margin: 0.5rem;
 `;
-
 const question_list = [
   ['나이를 알려주세요.'],
   ['오늘 기분은 어떤가요?'],
   ['오늘 땡기는 종류는 무엇인가요?'],
   ['1인분 예산은 어느 정도 인가요?'],
 ];
-
-const Question = () => {
-  const [question, setQuestion] = useState('나이를 알려주세요.');
-  const [answer, setAnswer] = useState([
+const answer_list = [
+  [
     ['young', '20대 이하', 'age'],
     ['middle', '30대~40대', 'age'],
     ['old', '50대 이상', 'age'],
-  ]);
-  const { setAnswerData } = useContext(AnswerDataContext);
+  ],
+  [
+    ['good', '좋음', 'mood'],
+    ['soso', '그저 그럼', 'mood'],
+    ['bad', '나쁨', 'mood'],
+  ],
+  [
+    ['meat', '육류', 'ingredient'],
+    ['seafood', '해산물', 'ingredient'],
+    ['etc', '비건', 'ingredient'],
+  ],
+  [
+    ['cheap', '만원 이하', 'money'],
+    ['middle', '만원~3만원', 'money'],
+    ['any', '상관없음', 'money'],
+  ],
+];
+
+const Question = () => {
+  const [question, setQuestion] = useState(question_list[0][0]);
+  const [answer, setAnswer] = useState(answer_list[0]);
+  const { setAnswerData, barcount, setBarcount } =
+    useContext(AnswerDataContext);
 
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
@@ -61,67 +79,50 @@ const Question = () => {
         data[name] = value;
         return data;
       });
-      setQuestion('오늘 기분은 어떤가요?');
-      setAnswer([
-        ['good', '좋음', 'mood'],
-        ['soso', '그저 그럼', 'mood'],
-        ['bad', '나쁨', 'mood'],
-      ]);
+      setBarcount(barcount + 1);
+      setQuestion(question_list[1][0]);
+      setAnswer(answer_list[1]);
     } else if (question === question_list[1][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
         return data;
       });
-      setQuestion('오늘 땡기는 종류는 무엇인가요?');
-      setAnswer([
-        ['meat', '육류', 'ingredient'],
-        ['seafood', '해산물', 'ingredient'],
-        ['etc', '비건', 'ingredient'],
-      ]);
+      setBarcount(barcount + 1);
+      setQuestion(question_list[2][0]);
+      setAnswer(answer_list[2]);
     } else if (question === question_list[2][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
         return data;
       });
-      setQuestion('1인분 예산은 어느 정도 인가요?');
-      setAnswer([
-        ['cheap', '만원 이하', 'money'],
-        ['middle', '만원~3만원', 'money'],
-        ['any', '상관없음', 'money'],
-      ]);
+      setBarcount(barcount + 1);
+      setQuestion(question_list[3][0]);
+      setAnswer(answer_list[3]);
     } else if (question === question_list[3][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
         return data;
       });
+      setBarcount(barcount + 1);
     }
   };
 
   const onClickBack = () => {
     if (question === question_list[1][0]) {
-      setQuestion('나이를 알려주세요.');
-      setAnswer([
-        ['young', '10~20대', 'age'],
-        ['middle', '30대~40대', 'age'],
-        ['old', '50대 이상', 'age'],
-      ]);
+      setQuestion(question_list[0][0]);
+      setAnswer(answer_list[0]);
+      setBarcount(barcount - 1);
     } else if (question === question_list[2][0]) {
-      setQuestion('오늘 기분은 어떤가요?');
-      setAnswer([
-        ['good', '좋음', 'mood'],
-        ['soso', '그저 그럼', 'mood'],
-        ['bad', '나쁨', 'mood'],
-      ]);
+      setQuestion(question_list[1][0]);
+      setAnswer(answer_list[1]);
+      setBarcount(barcount - 1);
     } else if (question === question_list[3][0]) {
-      setQuestion('오늘 땡기는 종류는 무엇인가요?');
-      setAnswer([
-        ['meat', '육류', 'ingredient'],
-        ['seafood', '해산물', 'ingredient'],
-        ['etc', '그외', 'ingredient'],
-      ]);
+      setQuestion(question_list[2][0]);
+      setAnswer(answer_list[2]);
+      setBarcount(barcount - 1);
     }
   };
   console.log(answer);
@@ -161,7 +162,7 @@ const Question = () => {
     <Container>
       <QuestionView>{question}</QuestionView>
       {backBtn}
-      <AnswerContainer>{answerBtn}</AnswerContainer>
+      {answerBtn}
     </Container>
   );
 };
