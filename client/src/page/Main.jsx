@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import GlobalStyle from '../styles/GlobalStyle';
 
 const Container = styled.div`
   width: 100%;
-  margin-top: 5rem;
-
+  height: 100vh;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,22 +37,26 @@ const MainButton = styled.button`
 
 const Main = () => {
   return (
-    <Container>
-      <div className="title">
-        <img
-          className="title-logo"
-          alt="타이틀 로고"
-          src="../logo/logo-wanna-try-this.png"
-          width={500}
-        />
-      </div>
-      <ButtonContainer>
-        <MainButton>골라줄게!</MainButton>
-        <Link to="/Survey">
-          <MainButton primary>골라볼래?</MainButton>
-        </Link>
-      </ButtonContainer>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <div className="title">
+          <img
+            className="title-logo"
+            alt="타이틀 로고"
+            src="../logo/logo-wanna-try-this.png"
+            width={500}
+          />
+        </div>
+        <ButtonContainer>
+          <MainButton>골라줄게!</MainButton>
+          <Link to="/Survey">
+            <MainButton primary>골라볼래?</MainButton>
+          </Link>
+        </ButtonContainer>
+        <GlobalStyle />
+      </Container>
+    </>
   );
 };
 

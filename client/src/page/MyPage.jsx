@@ -3,19 +3,21 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 
 const Container = styled.div`
-  background-color: white;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #d8e9f0, pink);
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 `;
 
-const mypage = () => {
+const MyPage = () => {
   return (
     <Container>
       <Header />
-      //chart
     </Container>
   );
 };
 
-export default mypage;
+export default MyPage;

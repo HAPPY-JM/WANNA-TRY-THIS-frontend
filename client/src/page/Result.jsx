@@ -3,6 +3,7 @@ import { AnswerDataContext } from '../App';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import styled from 'styled-components';
+import Header from '../components/Header';
 
 const Container = styled.div`
   padding: 10px;
@@ -11,13 +12,12 @@ const Container = styled.div`
   flex-direction: row;
   align-items: center;
 `;
-const Title = styled.h1`
-  text-align: center;
-`;
+
 const FoodImg = styled.img`
   width: 300px;
   height: 150px;
 `;
+
 const Button = styled.button`
   text-align: center;
   height: 2.25rem;
@@ -46,7 +46,7 @@ const Result = () => {
   console.log(answerData);
   return (
     <>
-      <Title>이거머글랭?</Title>
+      <Header />
       <Container>
         {data?.data.map((food) => (
           <div>

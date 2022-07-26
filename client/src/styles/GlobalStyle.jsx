@@ -4,10 +4,9 @@ const GlobalStyle = createGlobalStyle`
      html,
       body {
         width: 100%;
-        background: linear-gradient(to right, #D8E9F0, pink);
+        height: 100%;
         z-index: 0;
       }
-
 `;
 
 export default GlobalStyle;

@@ -6,13 +6,8 @@ import { Link } from 'react-router-dom';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-`;
-
-const ContainerButton = styled.div`
-  width: 4rem;
-  height: 3rem;
-  font-size: 2rem;
 `;
 
 const QuestionView = styled.div`
@@ -25,6 +20,11 @@ const QuestionView = styled.div`
   border-radius: 10px;
 `;
 
+const AnswerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const AnswerButton = styled.button`
   width: 10rem;
   height: 6rem;
@@ -35,7 +35,8 @@ const AnswerButton = styled.button`
   background: white;
   margin: 0.5rem;
 `;
-const questionList = [
+
+const question_list = [
   ['나이를 알려주세요.'],
   ['오늘 기분은 어떤가요?'],
   ['오늘 땡기는 종류는 무엇인가요?'],
@@ -54,7 +55,7 @@ const Question = () => {
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
     // 코드 리팩토링 에정
-    if (question === questionList[0][0]) {
+    if (question === question_list[0][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
@@ -66,7 +67,7 @@ const Question = () => {
         ['soso', '그저 그럼', 'mood'],
         ['bad', '나쁨', 'mood'],
       ]);
-    } else if (question === questionList[1][0]) {
+    } else if (question === question_list[1][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
@@ -78,7 +79,7 @@ const Question = () => {
         ['seafood', '해산물', 'ingredient'],
         ['etc', '비건', 'ingredient'],
       ]);
-    } else if (question === questionList[2][0]) {
+    } else if (question === question_list[2][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
@@ -90,7 +91,7 @@ const Question = () => {
         ['middle', '만원~3만원', 'money'],
         ['any', '상관없음', 'money'],
       ]);
-    } else if (question === questionList[3][0]) {
+    } else if (question === question_list[3][0]) {
       setAnswerData((el) => {
         let data = { ...el };
         data[name] = value;
@@ -100,21 +101,21 @@ const Question = () => {
   };
 
   const onClickBack = () => {
-    if (question === questionList[1][0]) {
+    if (question === question_list[1][0]) {
       setQuestion('나이를 알려주세요.');
       setAnswer([
         ['young', '10~20대', 'age'],
         ['middle', '30대~40대', 'age'],
         ['old', '50대 이상', 'age'],
       ]);
-    } else if (question === questionList[2][0]) {
+    } else if (question === question_list[2][0]) {
       setQuestion('오늘 기분은 어떤가요?');
       setAnswer([
         ['good', '좋음', 'mood'],
         ['soso', '그저 그럼', 'mood'],
         ['bad', '나쁨', 'mood'],
       ]);
-    } else if (question === questionList[3][0]) {
+    } else if (question === question_list[3][0]) {
       setQuestion('오늘 땡기는 종류는 무엇인가요?');
       setAnswer([
         ['meat', '육류', 'ingredient'],
@@ -160,7 +161,7 @@ const Question = () => {
     <Container>
       <QuestionView>{question}</QuestionView>
       {backBtn}
-      {answerBtn}
+      <AnswerContainer>{answerBtn}</AnswerContainer>
     </Container>
   );
 };
