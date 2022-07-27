@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { useContext, useState } from 'react';
 import { AnswerDataContext } from '../App';
+
 function ProgressBar() {
   // const [count, setCount] = useState(0);
   const { barcount } = useContext(AnswerDataContext);
@@ -15,11 +16,10 @@ function ProgressBar() {
 }
 
 const Container = styled.div`
-  margin: 1rem;
-  background-color: #ffffff52;
-  width: 40rem;
-  height: 2rem;
   display: flex;
+  width: 40rem;
+  height: 1.5rem;
+  background-color: #ffffff52;
   align-items: center;
   border-radius: 20px;
 `;

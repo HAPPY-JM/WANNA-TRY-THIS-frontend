@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import LogInButton from './LogInButton';
 
 const Container = styled.div`
   width: 100%;
   height: 100px;
-  background: #00000071;
+  position: absolute;
+  background: linear-gradient(to right, #d8e9f0, pink);
   display: flex;
   justify-content: right;
   align-items: center;
@@ -25,8 +26,9 @@ const Container = styled.div`
 // array1.find(element => element > 10);
 
 const Header = () => {
-  const path_list = ["/","/Survey","/Result"]
- if(path_list.find(path => path ===window.location.pathname)===undefined)return null
+  const path_list = ['/', '/Survey', '/Result'];
+  if (path_list.find((path) => path === window.location.pathname) === undefined)
+    return null;
 
   return (
     <Container>
