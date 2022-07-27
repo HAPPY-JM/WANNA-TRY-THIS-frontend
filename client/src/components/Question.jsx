@@ -54,7 +54,7 @@ const answer_list = [
   ],
   [
     ['meat', '육류', 'ingredient'],
-    ['seafood', '해산물', 'ingredient'],
+    ['sea', '해산물', 'ingredient'],
     ['etc', '비건', 'ingredient'],
   ],
   [
