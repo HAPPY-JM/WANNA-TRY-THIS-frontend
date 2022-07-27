@@ -25,6 +25,17 @@ li {
 
 button {
   cursor: pointer;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.392);
+  border: none;
+  border-radius: 1rem;
+  font-family: 'NEXONLv1GothicRegular';
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.586);
 }
 
 @font-face {

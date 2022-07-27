@@ -5,6 +5,8 @@ import Main from './page/Main';
 import Result from './page/Result';
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
+import Loading from './page/Loading';
+import MyPage from './page/MyPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyle from './GlobalStyle';
 export const AnswerDataContext = createContext();
@@ -30,6 +32,8 @@ const App = () => {
               <Route path="/" element={<Main />}></Route>
               <Route path="/Survey" element={<Survey />}></Route>
               <Route path="/Result" element={<Result />}></Route>
+              <Route path="/Loading" element={<Loading />}></Route>
+              <Route path="/MyPage" element={<MyPage />}></Route>
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>

@@ -16,8 +16,10 @@ const ContainerQuestion = styled.div`
 `;
 
 const QuestionView = styled.div`
-  height: 150px;
   display: flex;
+  height: 150px;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
   justify-content: center;
   align-items: center;
   font-size: 3rem;
@@ -34,13 +36,23 @@ const AnswerButton = styled.button`
   border-radius: 2rem;
   background: white;
   margin: 0.5rem;
+  & :hover {
+    background: whitesmoke;
+  }
 `;
+
+const AnswerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const question_list = [
   ['나이를 알려주세요.'],
   ['오늘 기분은 어떤가요?'],
   ['오늘 땡기는 종류는 무엇인가요?'],
   ['1인분 예산은 어느 정도 인가요?'],
 ];
+
 const answer_list = [
   [
     ['young', '20대 이하', 'age'],
@@ -127,9 +139,16 @@ const Question = () => {
   };
   console.log(answer);
 
+  const BackBtn = styled.div`
+    cursor: pointer;
+    padding: 2rem;
+  `;
+
   const backBtn =
     question !== '나이를 알려주세요.' ? (
-      <button onClick={onClickBack}>뒤로가기</button>
+      <BackBtn onClick={onClickBack}>
+        <img src="../button-back.png" alt="뒤로가기" width={32} />
+      </BackBtn>
     ) : (
       false
     );
@@ -160,9 +179,11 @@ const Question = () => {
 
   return (
     <Container>
-      <QuestionView>{question}</QuestionView>
-      {backBtn}
-      {answerBtn}
+      <QuestionView>
+        {backBtn}
+        {question}
+      </QuestionView>
+      <AnswerContainer>{answerBtn}</AnswerContainer>
     </Container>
   );
 };

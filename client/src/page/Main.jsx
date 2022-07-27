@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   width: 100%;
-  margin-top: 5rem;
-
+  height: 100vh;
   display: flex;
+  position: fixed;
+  padding-top: 3rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -15,6 +16,20 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   padding: 3rem;
+`;
+
+const MainFooter = styled.div`
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  bottom: 1rem;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 1rem;
+  color: #707070;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const MainButton = styled.button`
@@ -35,22 +50,25 @@ const MainButton = styled.button`
 
 const Main = () => {
   return (
-    <Container>
-      <div className="title">
-        <img
-          className="title-logo"
-          alt="타이틀 로고"
-          src="../logo/logo-wanna-try-this.png"
-          width={500}
-        />
-      </div>
-      <ButtonContainer>
-        <MainButton>골라줄게!</MainButton>
-        <Link to="/Survey">
-          <MainButton primary>골라볼래?</MainButton>
-        </Link>
-      </ButtonContainer>
-    </Container>
+    <>
+      <Container>
+        <div className="title">
+          <img
+            className="title-logo"
+            alt="타이틀 로고"
+            src="../logo/logo-wanna-try-this.png"
+            width={500}
+          />
+        </div>
+        <ButtonContainer>
+          <MainButton>골라줄게!</MainButton>
+          <Link to="/Survey">
+            <MainButton primary>골라볼래?</MainButton>
+          </Link>
+        </ButtonContainer>
+      </Container>
+      <MainFooter>ⓒ 2022 Elice Team-5. all rights reserved.</MainFooter>
+    </>
   );
 };
 
