@@ -18,24 +18,50 @@ export const LoginComponent = () => {
   //   'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
   //   Accept: '*/*',
   // };
+  //  const { data, isLoading, isError, error } = useQuery(
+  //     'food',
+  //     () => {
+  //       return fetch('http://localhost:5000/api/auth/kakao', {
+  //         // method: "GET",
+  //         // headers: {
+  //         //               "Content-Type": "application/json",
+  //         //     "X-Requested-With": "XMLHttpRequest",
+  //         // }
+  //       });
+  //     },
+  //     {
+  //       onSuccess: (data) => {
+  //         console.log(data);
+  //       },
+  //       onError: (e) => {
+  //         console.log(e.message);
+  //       },
+  //     },
+  //   );
+
+  // fetch('http://localhost:5000/api/auth/google')
+  //   .then((res) => (res.json()))
+  //   .then((data)=>   console.log(data))
+
+  // localStorage.setItem('token', data);
   const { data } = useQuery(
-    'login',async () => {
-      
-      await axios.get('http://localhost:5000/api/auth/google')
-      localStorage.setItem('token', data);
-  },
+    'login',
+    () => {
+      fetch('http://localhost:5000/api/auth/google')
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+      // localStorage.setItem('token', data);
+    },
     {
       onSuccess: (data) => {
-        console.log(data)
-        // localStorage.setItem('token', data);
+        console.log(data);
+        localStorage.setItem('token', data);
       },
       onError: (e) => {
-       
         console.log(e.message);
       },
     },
   );
-  console.log(data)
   // const { data } = useQuery('aa', axios.get('http://localhost:5000/api/auth/google'), {
   //   onSuccess: data => {
   //    localStorage.setItem('token', data);
@@ -44,7 +70,11 @@ export const LoginComponent = () => {
   // localStorage.setItem('token', data);
   return (
     <div>
-      <a href="http://localhost:5000/api/auth/kakao" target="_blank" rel='noreferrer'>
+      <a
+        href="http://localhost:5000/api/auth/kakao"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           className="kakaoLogo"
           src="../login/login-kakao.png"
@@ -54,7 +84,11 @@ export const LoginComponent = () => {
           target="_blank"
         />
       </a>
-      <a href="http://localhost:5000/api/auth/naver" target="_blank" rel='noreferrer'>
+      <a
+        href="http://localhost:5000/api/auth/naver"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           className="naverLogo"
           src="../login/login-naver.png"
@@ -63,12 +97,16 @@ export const LoginComponent = () => {
           value="naver"
         />
       </a>
-      <a href="http://localhost:5000/api/auth/google" target="_blank" rel='noreferrer' >
+      <a
+        href="http://localhost:5000/api/auth/google"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img
           className="googleLogo"
           src="../login/login-google.png"
           alt="구글 로그인"
-          width="200vh"         
+          width="200vh"
         />
       </a>
     </div>

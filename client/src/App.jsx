@@ -7,6 +7,8 @@ import NotFound from './page/NotFound';
 import Survey from './page/Survey';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyle from './GlobalStyle';
+import Mypage from './page/MyPage';
+import uesQuery from 'react-query';
 export const AnswerDataContext = createContext();
 const quertClient = new QueryClient();
 
@@ -30,6 +32,7 @@ const App = () => {
               <Route path="/" element={<Main />}></Route>
               <Route path="/Survey" element={<Survey />}></Route>
               <Route path="/Result" element={<Result />}></Route>
+              <Route path="/Mypage" element={<Mypage />}> </Route>
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>

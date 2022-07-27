@@ -34,12 +34,15 @@ const Button = styled.button`
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
   console.log(answerData);
+
+
+
   const answerUrl = Object.entries(answerData);
   const url = `?${answerUrl[0][0]}=${answerUrl[0][1]}&${answerUrl[1][0]}=${answerUrl[1][1]}&${answerUrl[2][0]}=${answerUrl[2][1]}&${answerUrl[3][0]}=${answerUrl[3][1]}`;
   console.log(url);
-
+  
   const { data, isLoading, isError, error } = useQuery(
-    'super-name',
+    'food',
     () => {
       return axios.get('http://localhost:5000/api/food');
     },
@@ -58,14 +61,14 @@ const Result = () => {
   if (isError) {
     return <h1>{error}</h1>;
   }
-  console.log(answerData);
+  console.log(data);
   return (
     <>
       <Title>이거머글랭?</Title>
       <Container>
         {data?.data.map((food) => (
           <div>
-            <FoodImg src="https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_2175525_20220630163907792.png" />
+            <FoodImg src={food.img} />
             <div key={food.name}>{food.name}</div>
             <span key={food.comment}>{food.comment}</span>
           </div>
