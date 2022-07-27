@@ -20,10 +20,18 @@ const App = () => {
     ingredient: '',
   });
   const [barcount, setBarcount] = useState(0);
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <div className="App">
       <AnswerDataContext.Provider
-        value={{ answerData, setAnswerData, barcount, setBarcount }}
+        value={{
+          answerData,
+          setAnswerData,
+          barcount,
+          setBarcount,
+          isOpen,
+          setIsOpen,
+        }}
       >
         <QueryClientProvider client={quertClient}>
           <BrowserRouter>

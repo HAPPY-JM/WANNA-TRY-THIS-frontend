@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LogInButton from './LogInButton';
-
+import Modal from './Modal';
 const Container = styled.div`
   width: 100%;
   height: 100px;
@@ -32,7 +32,11 @@ const Header = () => {
 
   return (
     <Container>
+<<<<<<< Updated upstream
       <LogInButton />
+=======
+      <Modal />
+>>>>>>> Stashed changes
     </Container>
   );
 };
