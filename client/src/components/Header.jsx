@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LogInButton from './LogInButton';
+import Modal from './Modal';
 
 const Container = styled.div`
   width: 100%;
@@ -8,11 +9,12 @@ const Container = styled.div`
   position: absolute;
   background: linear-gradient(to right, #d8e9f0, pink);
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
   z-index: 99;
 `;
 
+const Logo = styled.div``;
 // const Header = () => {
 //   const [isLogIn, setIsLogIn] = useState(false);
 
@@ -32,7 +34,10 @@ const Header = () => {
 
   return (
     <Container>
-      <LogInButton />
+      <Logo>
+        <img src="./logo/logo-wanna-try-this.png" />
+      </Logo>
+      <Modal />
     </Container>
   );
 };
