@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,7 +25,7 @@ const QuestionView = styled.div`
   border-radius: 10px;
 `;
 
-const AnswerButton = styled.button`
+const AnswerButton = styled(motion.button)`
   width: 10rem;
   height: 6rem;
   font-size: 1.5rem;
@@ -130,13 +130,13 @@ const Question = () => {
   const backBtn =
     question !== '나이를 알려주세요.' ? (
       <button onClick={onClickBack}>뒤로가기</button>
-    ) : (
-      false
-    );
+    ) : null;
 
   const answerBtn = answers.map((answer, idx) =>
     question !== '1인분 예산은 어느 정도 인가요?' ? (
       <AnswerButton
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ borderRadius: '50%' }}
         onClick={onClickSubmit}
         key={`answer+${idx}`}
         value={answer[0]}
@@ -147,6 +147,8 @@ const Question = () => {
     ) : (
       <Link to="/Result">
         <AnswerButton
+          whileHover={{ scale: 1.2, rotate: 90 }}
+          whileTap={{ borderRadius: '50%', scale: 0.8, rotate: -90 }}
           onClick={onClickSubmit}
           key={`answer+${idx}`}
           value={answer[0]}

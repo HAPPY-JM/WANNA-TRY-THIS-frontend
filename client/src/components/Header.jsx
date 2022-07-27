@@ -22,16 +22,12 @@ const Container = styled.div`
 //     }
 //   }, []);
 
-
 const Header = () => {
-  const path_list = ["/","/Survey","/Result"]
- if(path_list.find(path => path ===window.location.pathname)===undefined)return null
+  const path_list = ['/', '/Survey', '/Result'];
+  if (path_list.find((path) => path === window.location.pathname) === undefined)
+    return null;
 
-  return (
-    <Container>
-      <LogInButton />
-    </Container>
-  );
+  return <Container>{/* <LogInButton /> */}</Container>;
 };
 
 export default Header;

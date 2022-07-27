@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import { LoginComponent } from '../components/LoginComponent';
 const Container = styled.div`
   width: 100%;
-  margin-top: 5rem;
-
+  /* margin-top: 5rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -49,6 +48,7 @@ const Main = () => {
         <Link to="/Survey">
           <MainButton primary>골라볼래?</MainButton>
         </Link>
+        <LoginComponent />
       </ButtonContainer>
     </Container>
   );

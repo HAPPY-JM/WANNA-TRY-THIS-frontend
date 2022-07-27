@@ -34,14 +34,24 @@ const Button = styled.button`
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
   console.log(answerData);
-    const answerUrl = Object.entries(answerData);
+  const answerUrl = Object.entries(answerData);
   const url = `?${answerUrl[0][0]}=${answerUrl[0][1]}&${answerUrl[1][0]}=${answerUrl[1][1]}&${answerUrl[2][0]}=${answerUrl[2][1]}&${answerUrl[3][0]}=${answerUrl[3][1]}`;
   console.log(url);
 
-  
-  const { data, isLoading, isError, error } = useQuery('super-name', () => {
-    return axios.get('http://localhost:5000/api/food');
-  });
+  const { data, isLoading, isError, error } = useQuery(
+    'super-name',
+    () => {
+      return axios.get('http://localhost:5000/api/food');
+    },
+    {
+      onSuccess: (data) => {
+        console.log(data);
+      },
+      onError: (e) => {
+        console.log(e.message);
+      },
+    },
+  );
   if (isLoading) {
     return <h1>로딩중</h1>;
   }
