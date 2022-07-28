@@ -41,7 +41,7 @@ const Result = () => {
   const answerUrl = Object.entries(answerData);
   const url = `?${answerUrl[0][0]}=${answerUrl[0][1]}&${answerUrl[1][0]}=${answerUrl[1][1]}&${answerUrl[2][0]}=${answerUrl[2][1]}&${answerUrl[3][0]}=${answerUrl[3][1]}`;
   console.log(url);
-  
+
   const { data, isLoading, isError, error } = useQuery(
     'food',
     () => {
@@ -62,9 +62,8 @@ const Result = () => {
   if (isError) {
     return <h1>{error}</h1>;
   }
-  const result = data.data
-  const RD = Math.floor(Math.random()*(result.length-1)+1
-)
+  const result = data.data;
+  const RD = Math.floor(Math.random() * (result.length - 1) + 1);
   // const resultData = data.data[]
   console.log(result[RD].comment);
   return (
@@ -73,19 +72,10 @@ const Result = () => {
       <Container>
         <div>
           <FoodImg src={result[RD].img} />
-          <div> {result[RD].name }</div>
-          <span>{result[RD].comment }</span>
-      </div>
+          <div> {result[RD].name}</div>
+          <span>{result[RD].comment}</span>
+        </div>
 
-
-
-        {/* {data.data.map((food) => (
-          <div>
-            <FoodImg src={food.img} />
-            <div key={food.name}>{food.name}</div>
-            <span key={food.comment}>{food.comment}</span>
-          </div>
-        ))} */}
       </Container>
     </>
   );

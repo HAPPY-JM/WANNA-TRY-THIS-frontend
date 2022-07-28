@@ -23,7 +23,7 @@ const Container = styled.div`
 //   }, []);
 
 const Header = () => {
-  const path_list = ['/', '/Survey', '/Result','/Mypage'];
+  const path_list = ['/', '/Survey', '/Result', '/Mypage'];
   if (path_list.find((path) => path === window.location.pathname) === undefined)
     return null;
 

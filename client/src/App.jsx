@@ -7,10 +7,15 @@ import NotFound from './page/NotFound';
 import Survey from './page/Survey';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyle from './GlobalStyle';
-import Mypage from './page/MyPage';
-import uesQuery from 'react-query';
+import MyPage from './page/MyPage';
 export const AnswerDataContext = createContext();
-const quertClient = new QueryClient();
+const quertClient = new QueryClient( { defaultOptions: {
+    queries: {
+      retry: 3,
+      staleTime: 5 * 1000,
+    },
+  },
+});
 
 const App = () => {
   const [answerData, setAnswerData] = useState({
@@ -32,7 +37,9 @@ const App = () => {
               <Route path="/" element={<Main />}></Route>
               <Route path="/Survey" element={<Survey />}></Route>
               <Route path="/Result" element={<Result />}></Route>
-              <Route path="/Mypage" element={<Mypage />}> </Route>
+              <Route path="/Mypage" element={<MyPage />}>
+                {' '}
+              </Route>
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>

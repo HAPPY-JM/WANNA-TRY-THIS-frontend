@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import fetchGet from '../api';
 export const LoginComponent = () => {
   // const url = '';
   // function onClick(e) {
@@ -46,11 +45,8 @@ export const LoginComponent = () => {
   // localStorage.setItem('token', data);
   const { data } = useQuery(
     'login',
-    () => {
-      fetch('http://localhost:5000/api/auth/google')
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-      // localStorage.setItem('token', data);
+    async () => {
+      return await fetch('http://localhost:5000/api/auth/kakao');
     },
     {
       onSuccess: (data) => {
@@ -70,11 +66,7 @@ export const LoginComponent = () => {
   // localStorage.setItem('token', data);
   return (
     <div>
-      <a
-        href="http://localhost:5000/api/auth/kakao"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="http://localhost:5000/api/auth/kakao">
         <img
           className="kakaoLogo"
           src="../login/login-kakao.png"
