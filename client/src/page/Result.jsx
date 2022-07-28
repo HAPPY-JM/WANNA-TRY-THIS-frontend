@@ -35,7 +35,8 @@ const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
   console.log(answerData);
 
-
+  // localhost: 5000 / api / food / result ? mood = (good / soso / bad) & age=(young / middle / old) & money=(cheap / middle / any) & ingredient=(meat / sea / etc)
+  // ?mood=soso&age=middle&money=middle&ingredient=sea
 
   const answerUrl = Object.entries(answerData);
   const url = `?${answerUrl[0][0]}=${answerUrl[0][1]}&${answerUrl[1][0]}=${answerUrl[1][1]}&${answerUrl[2][0]}=${answerUrl[2][1]}&${answerUrl[3][0]}=${answerUrl[3][1]}`;
@@ -44,7 +45,7 @@ const Result = () => {
   const { data, isLoading, isError, error } = useQuery(
     'food',
     () => {
-      return axios.get('http://localhost:5000/api/food');
+      return axios.get(`http://localhost:5000/api/food/result${url}`);
     },
     {
       onSuccess: (data) => {
@@ -61,18 +62,30 @@ const Result = () => {
   if (isError) {
     return <h1>{error}</h1>;
   }
-  console.log(data);
+  const result = data.data
+  const RD = Math.floor(Math.random()*(result.length-1)+1
+)
+  // const resultData = data.data[]
+  console.log(result[RD].comment);
   return (
     <>
       <Title>이거머글랭?</Title>
       <Container>
-        {data?.data.map((food) => (
+        <div>
+          <FoodImg src={result[RD].img} />
+          <div> {result[RD].name }</div>
+          <span>{result[RD].comment }</span>
+      </div>
+
+
+
+        {/* {data.data.map((food) => (
           <div>
             <FoodImg src={food.img} />
             <div key={food.name}>{food.name}</div>
             <span key={food.comment}>{food.comment}</span>
           </div>
-        ))}
+        ))} */}
       </Container>
     </>
   );
