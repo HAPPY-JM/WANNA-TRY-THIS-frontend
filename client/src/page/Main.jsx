@@ -61,9 +61,9 @@ const Main = () => {
           />
         </div>
         <ButtonContainer>
-          <MainButton>골라줄게!</MainButton>
+          <MainButton>골라볼래?</MainButton>
           <Link to="/Survey">
-            <MainButton primary>골라볼래?</MainButton>
+            <MainButton primary>골라줄게!</MainButton>
           </Link>
         </ButtonContainer>
       </Container>
