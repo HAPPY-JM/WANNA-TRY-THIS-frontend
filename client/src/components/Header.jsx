@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import LogInButton from './LogInButton';
 import Modal from './Modal';
+
 const Container = styled.div`
   width: 100%;
   height: 100px;
@@ -24,13 +24,14 @@ const Container = styled.div`
 //   }, []);
 
 const Header = () => {
-  const path_list = ['/', '/Survey', '/Result'];
+  const path_list = ['/', '/Survey', '/Result', 'MyPage'];
   if (path_list.find((path) => path === window.location.pathname) === undefined)
     return null;
 
   return (
     <Container>
       <Modal />
+      <button>Log Out</button>
     </Container>
   );
 };
