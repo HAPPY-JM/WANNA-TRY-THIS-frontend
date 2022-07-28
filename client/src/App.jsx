@@ -7,10 +7,12 @@ import NotFound from './page/NotFound';
 import Survey from './page/Survey';
 import Loading from './page/Loading';
 import MyPage from './page/MyPage';
+import EmptyPage from './page/EmptyPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyle from './GlobalStyle';
 export const AnswerDataContext = createContext();
-const quertClient = new QueryClient( { defaultOptions: {
+const quertClient = new QueryClient({
+  defaultOptions: {
     queries: {
       retry: 3,
       staleTime: 5 * 1000,
@@ -48,6 +50,7 @@ const App = () => {
               <Route path="/Result" element={<Result />}></Route>
               <Route path="/Loading" element={<Loading />}></Route>
               <Route path="/MyPage" element={<MyPage />}></Route>
+              <Route path="/EmptyPage" element={<EmptyPage />} />
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>
