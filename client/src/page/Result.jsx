@@ -20,11 +20,16 @@ const FoodImg = styled.img`
 
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
-  const { data, isLoading, isError, error } = useQuery('super-name', () => {
-    return axios.get(
-      `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
-    );
-  });
+  const { data, isLoading, isError, error } = useQuery(
+    'super-name',
+    () => {
+      return axios.get(
+        `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
+      );
+    },
+    { staleTime: Infinity },
+  );
+
   if (isLoading) {
     return <h1>로딩중</h1>;
   }
