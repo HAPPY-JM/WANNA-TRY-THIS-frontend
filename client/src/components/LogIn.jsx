@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import '../styles/login.scss';
+import { useQuery } from 'react-query';
+import axios from 'axios';
 
 class LogIn extends Component {
   state = {
@@ -50,25 +52,34 @@ class LogIn extends Component {
                   로그인 해주세요!
                   <div className="socialBox">
                     <div className="kakao">
-                      <img
-                        className="kakaoLogo"
-                        src="../login/login-kakao.png"
-                        alt="카카오 로그인"
-                      />
+                      <a href="http://localhost:5000/api/auth/kakao">
+                        <img
+                          className="kakaoLogo"
+                          src="../login/login-kakao.png"
+                          alt="카카오 로그인"
+                          width="200vh"
+                        />
+                      </a>
                     </div>
                     <div className="naver">
-                      <img
-                        className="naverLogo"
-                        src="../login/login-naver.png"
-                        alt="네이버 로그인"
-                      />
+                      <a href="http://localhost:5000/api/auth/naver">
+                        <img
+                          className="naverLogo"
+                          src="../login/login-naver.png"
+                          alt="네이버 로그인"
+                          width="200vh"
+                        />
+                      </a>
                     </div>
                     <div className="google">
-                      <img
-                        className="googleLogo"
-                        src="../login/login-google.png"
-                        alt="구글 로그인"
-                      />
+                      <a href="http://localhost:5000/api/auth/google">
+                        <img
+                          className="googleLogo"
+                          src="../login/login-google.png"
+                          alt="구글 로그인"
+                          width="200vh"
+                        />
+                      </a>
                     </div>
                   </div>
                 </div>

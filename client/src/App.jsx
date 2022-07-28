@@ -10,7 +10,13 @@ import MyPage from './page/MyPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyle from './GlobalStyle';
 export const AnswerDataContext = createContext();
-const quertClient = new QueryClient();
+const quertClient = new QueryClient( { defaultOptions: {
+    queries: {
+      retry: 3,
+      staleTime: 5 * 1000,
+    },
+  },
+});
 
 const App = () => {
   const [answerData, setAnswerData] = useState({

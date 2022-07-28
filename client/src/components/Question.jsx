@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import { motion } from 'framer-motion';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@ const QuestionView = styled.div`
   border-radius: 10px;
 `;
 
-const AnswerButton = styled.button`
+const AnswerButton = styled(motion.button)`
   width: 10rem;
   height: 6rem;
   font-size: 1.5rem;
@@ -66,7 +66,7 @@ const answer_list = [
   ],
   [
     ['meat', '육류', 'ingredient'],
-    ['seafood', '해산물', 'ingredient'],
+    ['sea', '해산물', 'ingredient'],
     ['etc', '비건', 'ingredient'],
   ],
   [
@@ -78,7 +78,7 @@ const answer_list = [
 
 const Question = () => {
   const [question, setQuestion] = useState(question_list[0][0]);
-  const [answer, setAnswer] = useState(answer_list[0]);
+  const [answers, setAnswer] = useState(answer_list[0]);
   const { setAnswerData, barcount, setBarcount } =
     useContext(AnswerDataContext);
 
@@ -86,8 +86,8 @@ const Question = () => {
     const { name, value } = e.target;
     // 코드 리팩토링 에정
     if (question === question_list[0][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -95,8 +95,8 @@ const Question = () => {
       setQuestion(question_list[1][0]);
       setAnswer(answer_list[1]);
     } else if (question === question_list[1][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -104,8 +104,8 @@ const Question = () => {
       setQuestion(question_list[2][0]);
       setAnswer(answer_list[2]);
     } else if (question === question_list[2][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -113,8 +113,8 @@ const Question = () => {
       setQuestion(question_list[3][0]);
       setAnswer(answer_list[3]);
     } else if (question === question_list[3][0]) {
-      setAnswerData((el) => {
-        let data = { ...el };
+      setAnswerData((answers) => {
+        let data = { ...answers };
         data[name] = value;
         return data;
       });
@@ -137,7 +137,7 @@ const Question = () => {
       setBarcount(barcount - 1);
     }
   };
-  console.log(answer);
+  console.log(answers);
 
   const BackBtn = styled.div`
     cursor: pointer;
@@ -153,25 +153,29 @@ const Question = () => {
       false
     );
 
-  const answerBtn = answer.map((el, idx) =>
+  const answerBtn = answers.map((answer, idx) =>
     question !== '1인분 예산은 어느 정도 인가요?' ? (
       <AnswerButton
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ borderRadius: '50%' }}
         onClick={onClickSubmit}
         key={`answer+${idx}`}
-        value={el[0]}
-        name={el[2]}
+        value={answer[0]}
+        name={answer[2]}
       >
-        {el[1]}
+        {answer[1]}
       </AnswerButton>
     ) : (
       <Link to="/Result">
         <AnswerButton
+          whileHover={{ scale: 1.2, rotate: 90 }}
+          whileTap={{ borderRadius: '50%', scale: 0.8, rotate: -90 }}
           onClick={onClickSubmit}
           key={`answer+${idx}`}
-          value={el[0]}
-          name={el[2]}
+          value={answer[0]}
+          name={answer[2]}
         >
-          {el[1]}
+          {answer[1]}
         </AnswerButton>
       </Link>
     ),

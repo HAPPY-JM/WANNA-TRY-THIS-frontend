@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
+import { LoginComponent } from '../components/LoginComponent';
 const Container = styled.div`
   width: 100%;
   height: 100vh;
