@@ -32,11 +32,7 @@ const Header = () => {
 
   return (
     <Container>
-<<<<<<< Updated upstream
-      <LogInButton />
-=======
       <Modal />
->>>>>>> Stashed changes
     </Container>
   );
 };

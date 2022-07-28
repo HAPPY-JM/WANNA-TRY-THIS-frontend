@@ -20,9 +20,10 @@ const FoodImg = styled.img`
 
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
-  console.log(answerData);
   const { data, isLoading, isError, error } = useQuery('super-name', () => {
-    return axios.get('http://localhost:5000/api/food');
+    return axios.get(
+      `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
+    );
   });
   if (isLoading) {
     return <h1>로딩중</h1>;
@@ -30,17 +31,20 @@ const Result = () => {
   if (isError) {
     return <h1>{error}</h1>;
   }
-  console.log(answerData);
+
+  const randomNum = Math.floor(Math.random() * data.data.length);
 
   return (
     <Container>
-      {data?.data.map((food) => (
+      {
         <div>
-          <FoodImg src="https://kfcapi.inicis.com/kfcs_api_img/KFCS/goods/DL_2175525_20220630163907792.png" />
-          <div key={food.name}>{food.name}</div>
-          <span key={food.comment}>{food.comment}</span>
+          <FoodImg src={data.data[randomNum].img} />
+          <div key={data.data[randomNum].name}>{data.data[randomNum].name}</div>
+          <span key={data.data[randomNum].comment}>
+            {data.data[randomNum].comment}
+          </span>
         </div>
-      ))}
+      }
     </Container>
   );
 };
