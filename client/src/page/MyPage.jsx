@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Header from '../components/Header';
-import {useQuery} from 'react-query';
+import { useQuery } from 'react-query';
 import axios from 'axios';
+// import axios from 'axios';
 
 const Container = styled.div`
   background-color: white;
@@ -11,30 +12,39 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Mypage = () => {
-
+const MyPage = () => {
   const { data, isError, error } = useQuery(
-    "userID",
-    () => {
-      return fetch("http://localhost:5000/api/user/62de7af7cbd9da7f4a0feab2")
+    'userID',
+    async () => {
+      const response = await axios.get(
+        'http://localhost:5000/api/user/62de7d5a09eb4d48365617c9',
+      );
+      const resData = response.data;
+      return resData;
+      // console.log(data.map((todo)=>todo.data))
     },
     {
       onSuccess: (data) => {
-        console.log(data)
+        return data;
       },
       onError: (e) => {
-        console.log(e.message)
+        console.log(e.message);
       },
-    }
-  )
-console.log(data)
+      // select: (data) => {
+      //  const foodMostRecommandedFood = data.data.mostRecommandedFood
+      // return foodMostRecommandedFood
+      // }
+    },
+  );
+  //통계 데이터
+  console.log(data);
 
   return (
     <Container>
       <Header />
-      
+      <div id="aa">{/* {data.mostRecommandedFood} */}</div>
     </Container>
   );
 };
 
-export default Mypage;
+export default MyPage;
