@@ -31,6 +31,7 @@ const Header = () => {
   return (
     <Container>
       <Modal />
+      <button>Log Out</button>
     </Container>
   );
 };
