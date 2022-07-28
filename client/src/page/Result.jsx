@@ -20,29 +20,11 @@ const FoodImg = styled.img`
 
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
-  console.log(answerData);
-
-  // localhost: 5000 / api / food / result ? mood = (good / soso / bad) & age=(young / middle / old) & money=(cheap / middle / any) & ingredient=(meat / sea / etc)
-  // ?mood=soso&age=middle&money=middle&ingredient=sea
-
-  const answerUrl = Object.entries(answerData);
-  const url = `?${answerUrl[0][0]}=${answerUrl[0][1]}&${answerUrl[1][0]}=${answerUrl[1][1]}&${answerUrl[2][0]}=${answerUrl[2][1]}&${answerUrl[3][0]}=${answerUrl[3][1]}`;
-  console.log(url);
-
-  const { data, isLoading, isError, error } = useQuery(
-    'food',
-    () => {
-      return axios.get(`http://localhost:5000/api/food/result${url}`);
-    },
-    {
-      onSuccess: (data) => {
-        console.log(data);
-      },
-      onError: (e) => {
-        console.log(e.message);
-      },
-    },
-  );
+  const { data, isLoading, isError, error } = useQuery('super-name', () => {
+    return axios.get(
+      `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
+    );
+  });
   if (isLoading) {
     return <h1>로딩중</h1>;
   }
