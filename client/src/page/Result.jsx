@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import styled from 'styled-components';
 import SNS from '../components/SNS';
+import Footer from '../components/Footer';
 
 const Container = styled.div`
   display: grid;
@@ -21,6 +22,7 @@ const ResultBox = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: #707070;
   font-size: 1.5rem;
 `;
 
@@ -42,6 +44,12 @@ const ResultText = styled.div`
   white-space: pre-wrap;
 `;
 
+const Name = styled.div`
+  font-family: 'NEXONLv1GothicBold';
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+`;
+
 const FoodImg = styled.img`
   width: 300px;
   height: 300px;
@@ -52,11 +60,13 @@ const FoodImg = styled.img`
 const BtnCollection = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30rem;
-  height: 20rem;
-  background-color: aliceblue;
+  width: 10rem;
+  height: 5rem;
+  background-color: #fde6e6;
   border-radius: 1.5rem;
   border: 1rem solid #fff;
+  justify-content: center;
+  align-items: center;
 `;
 
 const DecisionBtn = styled.div`
@@ -98,9 +108,9 @@ const Result = () => {
             <div>
               <FoodImg src={data.data[randomNum].img} />
               <ResultText>
-                <div key={data.data[randomNum].name}>
+                <Name key={data.data[randomNum].name}>
                   {data.data[randomNum].name}
-                </div>
+                </Name>
                 <span key={data.data[randomNum].comment}>
                   {data.data[randomNum].comment}
                 </span>
@@ -109,9 +119,13 @@ const Result = () => {
           }
         </ResultBox>
         <SNSBox>
+          <BtnCollection>이 메뉴로 결정하기</BtnCollection>
+          <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
+          <BtnCollection>메뉴 선택 다시하기</BtnCollection>
           <SNS />
         </SNSBox>
       </Container>
+      <Footer />
     </>
   );
 };
