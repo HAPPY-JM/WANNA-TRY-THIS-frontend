@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
 import { LoginComponent } from '../components/LoginComponent';
+
 const Container = styled.div`
   width: 100%;
   height: 100vh;
@@ -16,20 +18,6 @@ const Container = styled.div`
 
 const ButtonContainer = styled.div`
   padding: 3rem;
-`;
-
-const MainFooter = styled.div`
-  display: flex;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0%);
-  bottom: 1rem;
-  font-family: 'TmoneyRoundWindRegular';
-  font-size: 1rem;
-  color: #707070;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 `;
 
 const MainButton = styled.button`
@@ -67,7 +55,7 @@ const Main = () => {
           </Link>
         </ButtonContainer>
       </Container>
-      <MainFooter>ⓒ 2022 Elice Team-5. all rights reserved.</MainFooter>
+      <Footer>ⓒ 2022 Elice Team-5. all rights reserved.</Footer>
     </>
   );
 };

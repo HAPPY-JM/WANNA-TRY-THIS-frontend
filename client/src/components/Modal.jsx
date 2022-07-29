@@ -2,6 +2,11 @@ import React, { useContext } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 
+const BackGround = styled.div`
+  background: #00000082;
+  width: 100%;
+`;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -11,14 +16,15 @@ const Container = styled.div`
   transform: translate(-50%, -50%);
   width: 30rem;
   height: 30rem;
-  background: #ffffff5f;
+  background: whitesmoke;
   border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 0.1rem, #49494982, solid;
+  border-bottom: 0.1rem, #494949b6, solid;
   border-radius: 3rem;
   justify-content: center;
   align-items: center;
+  z-index: 999;
 `;
 
 const Modal = () => {
@@ -64,6 +70,7 @@ const Modal = () => {
             </div>
           </Container>
         ) : null}
+        <BackGround />
       </div>
     </>
   );
