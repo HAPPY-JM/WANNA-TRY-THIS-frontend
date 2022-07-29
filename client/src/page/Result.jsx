@@ -5,6 +5,8 @@ import axios from 'axios';
 import styled from 'styled-components';
 import SNS from '../components/SNS';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const Container = styled.div`
   display: grid;
@@ -73,7 +75,7 @@ const DecisionBtn = styled.div`
   display: flex;
 `;
 
-const Result = () => {
+const DataGet = () => {
   const { answerData } = useContext(AnswerDataContext);
 
   const { data, isLoading, isError, error } = useQuery(
@@ -93,12 +95,31 @@ const Result = () => {
   }
 
   localStorage.setItem('foodResult', JSON.stringify(data.data));
-  const foodDatas = JSON.parse(localStorage.getItem('foodResult'));
 
-  const randomNum = Math.floor(Math.random() * data.data.length);
+  return;
+};
 
-  localStorage.setItem('randomNum', randomNum);
-  const localRandomNum = localStorage.getItem('randomNum');
+const randomPick = (foodsData) => {
+  return Math.floor(Math.random() * foodsData.length);
+  // localStorage.setItem('randomNum', randomNum);
+  // const localRandomNum = localStorage.getItem('randomNum');
+};
+
+const Result = () => {
+  const dataGet = DataGet();
+  const [cookies] = useCookies(['jwtToken']);
+  const token = cookies.jwtToken;
+
+  // localStorage.setItem('foodResult', JSON.stringify(data.data));
+  const foodsData = JSON.parse(localStorage.getItem('foodResult'));
+
+  console.log('음식', foodsData);
+
+  const randomNum = randomPick(foodsData);
+
+  const addFoodId = {
+    addFoodId: foodsData[randomNum]._id,
+  };
 
   return (
     <>
@@ -106,22 +127,42 @@ const Result = () => {
         <ResultBox>
           {
             <div>
-              <FoodImg src={data.data[randomNum].img} />
+              <FoodImg src={foodsData[randomNum].img} />
               <ResultText>
-                <Name key={data.data[randomNum].name}>
-                  {data.data[randomNum].name}
+                <Name key={foodsData[randomNum].name}>
+                  {foodsData[randomNum].name}
                 </Name>
-                <span key={data.data[randomNum].comment}>
-                  {data.data[randomNum].comment}
+                <span key={foodsData[randomNum].comment}>
+                  {foodsData[randomNum].comment}
                 </span>
               </ResultText>
             </div>
           }
         </ResultBox>
         <SNSBox>
-          <BtnCollection>이 메뉴로 결정하기</BtnCollection>
-          <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
-          <BtnCollection>메뉴 선택 다시하기</BtnCollection>
+          <BtnCollection
+            onClick={async () => {
+              const res = await fetch('http://localhost:5000/api/user/food', {
+                method: 'PATCH',
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${token}`,
+                },
+                body: JSON.stringify(addFoodId),
+              });
+              return res.json();
+            }}
+          >
+            이 메뉴로 결정하기
+          </BtnCollection>
+          <BtnCollection onClick={Result}>나의 메뉴 랜덤뽑기</BtnCollection>
+          <BtnCollection
+            onClick={() => {
+              <Link to="/Survey" />;
+            }}
+          >
+            메뉴 선택 다시하기
+          </BtnCollection>
           <SNS />
         </SNSBox>
       </Container>
