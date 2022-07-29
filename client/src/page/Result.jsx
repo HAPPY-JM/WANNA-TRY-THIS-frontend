@@ -1,13 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnswerDataContext } from '../App';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import styled from 'styled-components';
 import SNS from '../components/SNS';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-
 const Container = styled.div`
   display: grid;
   position: fixed;
@@ -74,9 +73,28 @@ const BtnCollection = styled.div`
   font-size: 1.5rem;
 `;
 
-const DataGet = () => {
-  const { answerData } = useContext(AnswerDataContext);
 
+
+const Result = () => {
+  const { answerData } = useContext(AnswerDataContext);
+   const [cookies]= useCookies(['jwtToken'])
+  const token = cookies.jwtToken;
+   const [addFood,setAddFood] = useState({"addFoodId":""})
+      const onClickFood = async () => {
+        setAddFood({
+          ...addFood,
+          "addFoodId":data.data[randomNum]._id
+        })
+        return await fetch("http://localhost:5000/api/user/food/", {
+      method: "PATCH",
+      headers: {
+        'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+      },
+      body :  JSON.stringify(addFood)   
+    }).then(res=>res.json())
+      .then(data=>console.log(data))
+  }
   const { data, isLoading, isError, error } = useQuery(
     'super-name',
     () => {
@@ -93,77 +111,39 @@ const DataGet = () => {
     return <h1>{error}</h1>;
   }
 
-  localStorage.setItem('foodResult', JSON.stringify(data.data));
-
-  return;
-};
-
-const randomPick = (foodsData) => {
-  return Math.floor(Math.random() * foodsData.length);
-  // localStorage.setItem('randomNum', randomNum);
-  // const localRandomNum = localStorage.getItem('randomNum');
-};
-
-const Result = () => {
-  const dataGet = DataGet();
-  const [cookies] = useCookies(['jwtToken']);
-  const token = cookies.jwtToken;
-
-  // localStorage.setItem('foodResult', JSON.stringify(data.data));
-  const foodsData = JSON.parse(localStorage.getItem('foodResult'));
-
-  console.log('음식', foodsData);
-
-  const randomNum = randomPick(foodsData);
-
-  const addFoodId = {
-    addFoodId: foodsData[randomNum]._id,
-  };
-
+  const randomNum = Math.floor(Math.random() * data.data.length);
+  console.log(data.data[randomNum]._id)
   return (
     <>
       <Container>
         <ResultBox>
           {
             <div>
-              <FoodImg src={foodsData[randomNum].img} />
+              <FoodImg src={data.data[randomNum].img} />
               <ResultText>
-                <Name key={foodsData[randomNum].name}>
-                  {foodsData[randomNum].name}
-                </Name>
-                <span key={foodsData[randomNum].comment}>
-                  {foodsData[randomNum].comment}
+                <div key={data.data[randomNum].name}>
+                  {data.data[randomNum].name}
+                </div>
+                <span key={data.data[randomNum].comment}>
+                  {data.data[randomNum].comment}
                 </span>
               </ResultText>
             </div>
           }
         </ResultBox>
         <SNSBox>
-          <BtnCollection
-            onClick={async () => {
-              const res = await fetch('http://localhost:5000/api/user/food', {
-                method: 'PATCH',
-                headers: {
-                  'Content-Type': 'application/json',
-                  Authorization: `Bearer ${token}`,
-                },
-                body: JSON.stringify(addFoodId),
-              });
-              return res.json();
-            }}
-          >
-            이 메뉴로 결정하기
-          </BtnCollection>
-          <BtnCollection onClick={Result}>나의 메뉴 랜덤뽑기</BtnCollection>
-          <Link to="/Survey">
-            <BtnCollection onClick={() => window.localStorage.clear()}>
-              메뉴 선택 다시하기
-            </BtnCollection>
+            <BtnCollection onClick={onClickFood}>이 메뉴로 결정하기</BtnCollection>
+          <Link to="">
+            <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
           </Link>
+          <Link to="/">
+            <BtnCollection>메뉴 선택 다시하기</BtnCollection>
+          </Link>
+
           <SNS />
         </SNSBox>
       </Container>
-      <Footer />
+          <Footer />
     </>
   );
 };
