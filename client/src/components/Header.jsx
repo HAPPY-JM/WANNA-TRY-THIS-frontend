@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
@@ -25,27 +24,24 @@ const LoginContainer = styled.div`
 
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
-  const [cookies] = useCookies(['loginNow']);
-  console.log(cookies);
+  const [cookies, removeCookie] = useCookies(['jwtToken']);
   const [isLoginNow, setIsLoginNow] = useState(false);
+  const token = cookies.jwtToken;
 
   useEffect(() => {
-    const token = cookies.loginNow;
-    if (token) {
-      setIsLoginNow(true);
+    if (!token || token === 'undefined') {
+      setIsLoginNow(false);
       return;
     }
-    setIsLoginNow(false);
+    setIsLoginNow(true);
     return;
-  }, [cookies]);
-  console.log('로그인 여부: ', isLoginNow);
+  }, [token]);
 
   if (path_list.find((path) => path === window.location.pathname) === undefined)
     return null;
 
   const userLogout = async () => {
-    setIsLoginNow(false);
-    return await axios.get('http://localhost:5000/api/user/logout');
+    return removeCookie('jwtToken');
   };
 
   return (
