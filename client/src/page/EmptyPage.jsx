@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 const EmptyPage = () => {
   const navigate = useNavigate();
 
-  useEffect(() => navigate(-2), []);
+  useEffect(() => navigate(-2));
 
   return;
 };
