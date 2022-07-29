@@ -9,7 +9,10 @@ const LogoImg = styled.img`
 const Logo = () => {
   return (
     <Link to="/">
-      <LogoImg src="../logo/logo-wanna-try-this-white.png" />
+      <LogoImg
+        src="../logo/logo-wanna-try-this-white.png"
+        onClick={() => window.localStorage.clear()}
+      />
     </Link>
   );
 };
