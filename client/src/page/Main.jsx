@@ -23,6 +23,7 @@ const ButtonContainer = styled.div`
 `;
 
 const Character = styled.img`
+  width: 10rem;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -75,7 +76,7 @@ const Main = () => {
           </Link>
         </ButtonContainer>
       </Container>
-      <Character img src="../public/character.png" />
+      <Character src="./character.png" />
       <Footer />
     </>
   );
