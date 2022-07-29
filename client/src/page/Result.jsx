@@ -82,7 +82,7 @@ const Result = () => {
   }
 
   const randomNum = Math.floor(Math.random() * data.data.length);
-
+  
   return (
     <>
       <Container>
