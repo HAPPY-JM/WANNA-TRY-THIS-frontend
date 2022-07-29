@@ -1,5 +1,5 @@
-<h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
-<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </center>
+<div align="center"> <h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
+<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </div>
 <br>
 <br>
 
@@ -61,6 +61,8 @@
 
   <br>
  ### 📑 DevOps
+
+- **애자일 개발 프로세스** <br>
   <img src="/uploads/701a1a49463ee10b6f674618177c7a5e/image.png" width="100" height="100"> <img src="/uploads/cbe857ea580236fd8adf7a22d385da8a/image.png" width="100" height="100">
 
 
