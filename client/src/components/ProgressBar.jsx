@@ -22,6 +22,7 @@ const Container = styled.div`
   background-color: #ffffff52;
   align-items: center;
   border-radius: 20px;
+  margin-top: 10%;
 `;
 
 const Progress = styled.div`
@@ -30,6 +31,7 @@ const Progress = styled.div`
   height: 100%;
   transition: width 1s;
   border-radius: 20px;
+  /* margin-top: 10%; */
 `;
 
 export default ProgressBar;

@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-import {useCookies} from "react-cookie"
+import { useCookies } from "react-cookie"
+import {useForm} from 'react-hook-form'
 // import axios from 'axios';
 
 const Container = styled.div`
@@ -27,45 +28,66 @@ const MainFooter = styled.input`
   align-items: center;
   text-align: center;
   `;
+const Form = styled.form`
+    display: flex;
+  position: absolute;
 
+  top: 10rem;
+`
 
 const MyPage = () => {
   const [cookies]= useCookies(['jwtToken'])
   const token = cookies.jwtToken;
   const [nickname, setNickname] = useState({
-    newNickname:""
+    "newNickname":""
   })
-
-  const data1 = {
-    "newNickname": "abc"
-  }
-    const onClickName = async (e) => {
-      e.preventDefault()
-      // console.log(e.target.value)
-      // setNickname({
-      //   ...nickname,
-      //   newNickname:e.target.value
-      // })
+  const { register, handleSubmit } = useForm();
+  const onSubmit =async (data) => {
+    console.log(data.newNickname)  
+    setNickname({
+        ...nickname,
+        "newNickname":data.newNickname
+      })
     return await fetch("http://localhost:5000/api/user/nickname", {
       method: "PATCH",
       headers: {
         'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
       },
-      body :  JSON.stringify(data1)   
+      body :  JSON.stringify(nickname)   
     }).then(res=>res.json())
       .then(data=>console.log(data))
   }
+  // const data1 = {
+  //   "newNickname": "abc"
+  // }
+  //   const onClickName = async (e) => {
+  //     e.preventDefault()
+  //     console.log(e.target.value)
+  //     setNickname({
+  //       ...nickname,
+  //       newNickname:e.target.value
+  //     })
+  //   return await fetch("http://localhost:5000/api/user/nickname", {
+  //     method: "PATCH",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //         Authorization: `Bearer ${token}`
+  //     },
+  //     body :  JSON.stringify(nickname)   
+  //   }).then(res=>res.json())
+  //     .then(data=>console.log(data))
+  // }
   // useEffect(() => {
     
   // })
 
-  const ooClickFOOD = async (e) => {
-    e.preventDefault()
-    return await fetch("http://localhost:5000/api/user/")
-      .then((res)=>res.json())
-      .then((data) => console.log(data))
-  }
+  // const ooClickFOOD = async (e) => {
+  //   e.preventDefault()
+  //   return await fetch("http://localhost:5000/api/user/")
+  //     .then((res)=>res.json())
+  //     .then((data) => console.log(data))
+  // }
   // const { data, isError, error } = useQuery(
   //   'userID',
   //   async () => {
@@ -98,11 +120,12 @@ const MyPage = () => {
 
   return (
     <Container>
-      <Header />
-      <form>
-      <MainFooter type="text" />
-        <MainFooter type="submit" onClick={ onClickName}/>
-      </form>
+      {/* <Header /> */}
+		<Form onSubmit={handleSubmit(onSubmit)}>
+			<label>닉네임</label>
+			<input {...register("newNickname")} />
+			<input type="submit" />
+		</Form>
     </Container>
   );
 };

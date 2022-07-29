@@ -10,6 +10,7 @@ import MyPage from './page/MyPage';
 import EmptyPage from './page/EmptyPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import GlobalStyle from './GlobalStyle';
+import Foodlist from './page/Foodlist'
 export const AnswerDataContext = createContext();
 const quertClient = new QueryClient({
   defaultOptions: {
@@ -49,6 +50,7 @@ const App = () => {
               <Route path="/Loading" element={<Loading />}></Route>
               <Route path="/MyPage" element={<MyPage />}></Route>
               <Route path="/EmptyPage" element={<EmptyPage />} />
+              <Route path='/Foodlist' element={<Foodlist/>}></Route>
               <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </BrowserRouter>
