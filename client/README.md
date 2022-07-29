@@ -75,6 +75,42 @@
 
 ## 5. Architecture
 ### Client
+```
+src
+ ┣ components
+ ┃ ┣ Footer.jsx
+ ┃ ┣ Header.jsx
+ ┃ ┣ Infinite.jsx
+ ┃ ┣ LoginComponent.jsx
+ ┃ ┣ Logo.jsx
+ ┃ ┣ Modal.jsx
+ ┃ ┣ ProgressBar.jsx
+ ┃ ┣ Question.jsx
+ ┃ ┗ SNS.jsx
+ ┣ fonts
+ ┃ ┣ NEXONLv1GothicBold.ttf
+ ┃ ┣ NEXONLv1GothicRegular.ttf
+ ┃ ┗ TmoneyRoundWindRegular.ttf
+ ┣ page
+ ┃ ┣ EmptyPage.jsx
+ ┃ ┣ Loading.jsx
+ ┃ ┣ Main.jsx
+ ┃ ┣ MyPage.jsx
+ ┃ ┣ NotFound.jsx
+ ┃ ┣ Result.jsx
+ ┃ ┗ Survey.jsx
+ ┣ styles
+ ┃ ┗ login.scss
+ ┣ App.jsx
+ ┣ App.test.js
+ ┣ GlobalStyle.jsx
+ ┣ index.css
+ ┣ index.js
+ ┣ logo.svg
+ ┣ reportWebVitals.js
+ ┗ setupTests.js
+```
+
 ### Back
 ```
 src
