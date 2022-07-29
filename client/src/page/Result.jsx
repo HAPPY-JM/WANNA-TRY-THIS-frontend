@@ -5,6 +5,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import SNS from '../components/SNS';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Container = styled.div`
   display: grid;
@@ -24,6 +25,7 @@ const ResultBox = styled.div`
   text-align: center;
   color: #707070;
   font-size: 1.5rem;
+  margin-top: 2rem;
 `;
 
 const SNSBox = styled.div`
@@ -32,6 +34,7 @@ const SNSBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 `;
 
 const ResultText = styled.div`
@@ -47,7 +50,6 @@ const ResultText = styled.div`
 const Name = styled.div`
   font-family: 'NEXONLv1GothicBold';
   font-size: 2rem;
-  margin-bottom: 0.5rem;
 `;
 
 const FoodImg = styled.img`
@@ -60,17 +62,15 @@ const FoodImg = styled.img`
 const BtnCollection = styled.div`
   display: flex;
   flex-direction: column;
-  width: 10rem;
-  height: 5rem;
+  width: 21rem;
+  height: 4.5rem;
   background-color: #fde6e6;
-  border-radius: 1.5rem;
+  border-radius: 5rem;
   border: 1rem solid #fff;
   justify-content: center;
   align-items: center;
-`;
-
-const DecisionBtn = styled.div`
-  display: flex;
+  font-family: 'NEXONLv1GothicBold';
+  font-size: 1.5rem;
 `;
 
 const Result = () => {
@@ -113,8 +113,12 @@ const Result = () => {
         </ResultBox>
         <SNSBox>
           <BtnCollection>이 메뉴로 결정하기</BtnCollection>
-          <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
-          <BtnCollection>메뉴 선택 다시하기</BtnCollection>
+          <Link to="">
+            <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
+          </Link>
+          <Link to="/">
+            <BtnCollection>메뉴 선택 다시하기</BtnCollection>
+          </Link>
           <SNS />
         </SNSBox>
       </Container>
