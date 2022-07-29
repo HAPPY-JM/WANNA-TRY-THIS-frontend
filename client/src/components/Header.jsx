@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Modal from './Modal';
@@ -17,27 +16,26 @@ const Container = styled.div`
 
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
-  const [cookies] = useCookies(['loginNow']);
+  const [cookies, removeCookie] = useCookies(['jwtToken']);
   console.log(cookies);
   const [isLoginNow, setIsLoginNow] = useState(false);
+  const token = cookies.jwtToken;
 
   useEffect(() => {
-    const token = cookies.loginNow;
-    if (token) {
-      setIsLoginNow(true);
+    if (!token || token === 'undefined') {
+      setIsLoginNow(false);
       return;
     }
-    setIsLoginNow(false);
+    setIsLoginNow(true);
     return;
-  }, [cookies]);
+  }, [token]);
   console.log('로그인 여부: ', isLoginNow);
 
   if (path_list.find((path) => path === window.location.pathname) === undefined)
     return null;
 
   const userLogout = async () => {
-    setIsLoginNow(false);
-    return await axios.get('http://localhost:5000/api/user/logout');
+    return removeCookie('jwtToken');
   };
 
   return (
