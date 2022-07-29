@@ -1,7 +1,9 @@
-<h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
-<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </center>
+<div align="center"> <h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
+<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </div>
 <br>
 <br>
+
+## 서비스 링크: [이거머글랭?](http://kdt-sw2-busan-team05.elicecoding.com/)
 
 ## 1. 기획 의도 & 목적
 
@@ -24,14 +26,16 @@
 - **서브 기능**
   1.  추천받은 음식 공유
   2.  마이페이지
-  3.
+  3.  무한 스크롤 (...개발 중...)
 
 <br>
 
 ## 3. 프로젝트만의 차별점, 기대 효과
 
-- 기존 서비스의 단점 -> 본 프로젝트의 장점
-- 본 웹서비스의 사용자가 경험할 효과 및 장점
+- 질문을 통해 메뉴를 추천받는 서비스는 기존에 존재하지 않는 서비스입니다.
+- 저희는 그날의 기분, 선호하는 식재료, 나이 그리고 예산에 맞춰 메뉴를 추천해 드립니다.
+- 우리의 뇌는 사소한 의사결정을 할 때에도 에너지를 마구마구 쓴다고 합니다.
+- 오늘도 뭐 먹을지 고민만 하다가 식사 시간이 다 지나간 여러분에게 소중한 시간과 에너지를 선물해 드리겠습니다.
 
 <br>
 
@@ -61,13 +65,92 @@
 
   <br>
  ### 📑 DevOps
+
+- **애자일 개발 프로세스** <br>
   <img src="/uploads/701a1a49463ee10b6f674618177c7a5e/image.png" width="100" height="100"> <img src="/uploads/cbe857ea580236fd8adf7a22d385da8a/image.png" width="100" height="100">
 
 
   <br>
 
 
-## 5. 구성원 역할
+## 5. Architecture
+### Client
+```
+src
+ ┣ components
+ ┃ ┣ Footer.jsx
+ ┃ ┣ Header.jsx
+ ┃ ┣ Infinite.jsx
+ ┃ ┣ LoginComponent.jsx
+ ┃ ┣ Logo.jsx
+ ┃ ┣ Modal.jsx
+ ┃ ┣ ProgressBar.jsx
+ ┃ ┣ Question.jsx
+ ┃ ┗ SNS.jsx
+ ┣ fonts
+ ┃ ┣ NEXONLv1GothicBold.ttf
+ ┃ ┣ NEXONLv1GothicRegular.ttf
+ ┃ ┗ TmoneyRoundWindRegular.ttf
+ ┣ page
+ ┃ ┣ EmptyPage.jsx
+ ┃ ┣ Loading.jsx
+ ┃ ┣ Main.jsx
+ ┃ ┣ MyPage.jsx
+ ┃ ┣ NotFound.jsx
+ ┃ ┣ Result.jsx
+ ┃ ┗ Survey.jsx
+ ┣ styles
+ ┃ ┗ login.scss
+ ┣ App.jsx
+ ┣ App.test.js
+ ┣ GlobalStyle.jsx
+ ┣ index.css
+ ┣ index.js
+ ┣ logo.svg
+ ┣ reportWebVitals.js
+ ┗ setupTests.js
+```
+### Back
+```
+src
+ ┣ db
+ ┃ ┣ models
+ ┃ ┃ ┣ food-model.js
+ ┃ ┃ ┗ user-model.js
+ ┃ ┣ schemas
+ ┃ ┃ ┣ food-schema.js
+ ┃ ┃ ┗ user-schema.js
+ ┃ ┗ index.js
+ ┣ middlewares
+ ┃ ┣ error-handler.js
+ ┃ ┣ index.js
+ ┃ ┣ login-required.js
+ ┃ ┗ user-validator.js
+ ┣ passport
+ ┃ ┣ googleStrategy.js
+ ┃ ┣ index.js
+ ┃ ┣ kakaoStrategy.js
+ ┃ ┗ naverStrategy.js
+ ┣ routers
+ ┃ ┣ auth-router.js
+ ┃ ┣ food-router.js
+ ┃ ┣ index.js
+ ┃ ┗ user-router.js
+ ┣ services
+ ┃ ┣ food-service.js
+ ┃ ┣ index.js
+ ┃ ┗ user-service.js
+ ┣ test
+ ┃ ┣ auth.spec.js
+ ┃ ┣ food.spec.js
+ ┃ ┗ user.spec.js
+ ┣ utils
+ ┃ ┣ index.js
+ ┃ ┗ setUserToken.js
+ ┗ app.js
+```
+
+## 6. 구성원 역할
 
 |  이름  | 역할             |
 | :----: | ---------------- |
