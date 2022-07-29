@@ -1,5 +1,5 @@
 <h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
-<center> <img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </center>
+<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </center>
 <br>
 <br>
 
@@ -40,12 +40,13 @@
 ### 🔧 사용 스택
 
 - **프론트엔드** <br>
-  <img src="/uploads/dce74004fb755de752fcf17282070fc2/image.png" width="100" height="100">
+  <img src="/uploads/dce74004fb755de752fcf17282070fc2/image.png" width="100" height="100"> <img src="/uploads/4e86b4d5e7e073433f48171d2697361c/image.png" width="100" height="100"> <img src="/uploads/8c172852289b00c05ef3f4368a49b0c3/image.png" width="100" height="100">
 
   ***
 
 - **백엔드** <br>
-  <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100"> <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100">
+  <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100"> <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100"> <img src="/uploads/3ff8e4ce35bf43a94f25c0a54e9185c4/image.png" width="100" height="100">
+
   <br>
   <br>
 
@@ -58,7 +59,13 @@
   - 홈 화면에서 어떤 버튼을 클릭하여 어떤 페이지로 이동할 수 있다.
   - 이 버튼을 클릭하면 이런 웹 서비스가 실행된다.
 
-<br>
+  <br>
+ ### 📑 DevOps
+  <img src="/uploads/701a1a49463ee10b6f674618177c7a5e/image.png" width="100" height="100"> <img src="/uploads/cbe857ea580236fd8adf7a22d385da8a/image.png" width="100" height="100">
+
+
+  <br>
+
 
 ## 5. 구성원 역할
 

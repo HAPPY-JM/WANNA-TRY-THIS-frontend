@@ -3,6 +3,7 @@ import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -36,7 +37,8 @@ const AnswerButton = styled(motion.button)`
   border-radius: 2rem;
   background: white;
   margin: 0.5rem;
-  & :hover {
+  &:hover,
+  :focus {
     background: whitesmoke;
   }
 `;
@@ -167,8 +169,8 @@ const Question = () => {
     ) : (
       <Link to="/Result">
         <AnswerButton
-          whileHover={{ scale: 1.2, rotate: 90 }}
-          whileTap={{ borderRadius: '50%', scale: 0.8, rotate: -90 }}
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ borderRadius: '50%' }}
           onClick={onClickSubmit}
           key={`answer+${idx}`}
           value={answer[0]}

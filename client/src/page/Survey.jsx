@@ -2,7 +2,6 @@ import React from 'react';
 import Question from '../components/Question';
 import styled from 'styled-components';
 import ProgressBar from '../components/ProgressBar';
-import Footer from '../components/Footer';
 
 const Container = styled.div`
   width: 100%;
@@ -14,6 +13,21 @@ const Container = styled.div`
   align-items: center;
 `;
 
+const SurveyFooter = styled.div`
+  display: flex;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  bottom: 1rem;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 1rem;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  user-select: none;
+`;
+
 const Survey = () => {
   return (
     <>
@@ -21,7 +35,7 @@ const Survey = () => {
         <ProgressBar />
         <Question />
       </Container>
-      <Footer />
+      <SurveyFooter>ⓒ 2022 Elice Team-5. all rights reserved.</SurveyFooter>
     </>
   );
 };

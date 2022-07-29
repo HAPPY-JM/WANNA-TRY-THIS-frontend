@@ -28,7 +28,7 @@ const App = () => {
     ingredient: '',
   });
   const [barcount, setBarcount] = useState(0);
-  const [isOpen, setIsOpen] = useState(true);
+
   return (
     <div className="App">
       <AnswerDataContext.Provider
@@ -37,8 +37,6 @@ const App = () => {
           setAnswerData,
           barcount,
           setBarcount,
-          isOpen,
-          setIsOpen,
         }}
       >
         <QueryClientProvider client={quertClient}>
