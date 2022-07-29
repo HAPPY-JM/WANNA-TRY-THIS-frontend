@@ -23,19 +23,19 @@ const Message = styled.div`
   padding: 3rem;
 `;
 
-const Loading = () => {
+const LoginLoading = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => navigate(-1), 2000);
+    setTimeout(() => navigate(-1), 1500);
   });
 
   return (
     <Container>
       <PuffLoader color="#fff" size={300} speedMultiplier={0.5} />
-      <Message>로딩중이에요</Message>
+      <Message>로그인중이에요!</Message>
     </Container>
   );
 };
 
-export default Loading;
+export default LoginLoading;

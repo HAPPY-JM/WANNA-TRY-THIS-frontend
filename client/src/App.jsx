@@ -5,7 +5,8 @@ import Main from './page/Main';
 import Result from './page/Result';
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
-import Loading from './page/Loading';
+import LoginLoading from './page/LoginLoading';
+import SurveyLoading from './page/SurveyLoading';
 import MyPage from './page/MyPage';
 import EmptyPage from './page/EmptyPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -46,7 +47,8 @@ const App = () => {
               <Route path="/" element={<Main />}></Route>
               <Route path="/Survey" element={<Survey />}></Route>
               <Route path="/Result" element={<Result />}></Route>
-              <Route path="/Loading" element={<Loading />}></Route>
+              <Route path="/LoginLoading" element={<LoginLoading />}></Route>
+              <Route path="/SurveyLoading" element={<SurveyLoading />}></Route>
               <Route path="/MyPage" element={<MyPage />}></Route>
               <Route path="/EmptyPage" element={<EmptyPage />} />
               <Route path="*" element={<NotFound />}></Route>
