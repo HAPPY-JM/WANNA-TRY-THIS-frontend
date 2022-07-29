@@ -1,6 +1,8 @@
-import React from 'react';
+import axios from 'axios';
+import { React, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Modal from './Modal';
+import { useCookies } from 'react-cookie';
 
 const Container = styled.div`
   width: 100%;
@@ -13,25 +15,34 @@ const Container = styled.div`
   z-index: 99;
 `;
 
-// const Header = () => {
-//   const [isLogIn, setIsLogIn] = useState(false);
-
-//   useEffect(() => {
-//     const token = localStorage.getItem('token');
-//     if (token) {
-//       setIsLogIn(true);
-//     }
-//   }, []);
-
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
+  const [cookies] = useCookies(['loginNow']);
+  console.log(cookies);
+  const [isLoginNow, setIsLoginNow] = useState(false);
+
+  useEffect(() => {
+    const token = cookies.loginNow;
+    if (token) {
+      setIsLoginNow(true);
+      return;
+    }
+    setIsLoginNow(false);
+    return;
+  }, [cookies]);
+  console.log('로그인 여부: ', isLoginNow);
+
   if (path_list.find((path) => path === window.location.pathname) === undefined)
     return null;
 
+  const userLogout = async () => {
+    setIsLoginNow(false);
+    return await axios.get('http://localhost:5000/api/user/logout');
+  };
+
   return (
     <Container>
-      <Modal />
-      <button>Log Out</button>
+      {isLoginNow ? <button onClick={userLogout}>Log Out</button> : <Modal />}
     </Container>
   );
 };
