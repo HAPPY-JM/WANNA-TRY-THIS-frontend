@@ -34,10 +34,6 @@ button {
   text-align: center;
 }
 
-button:hover {
-  background-color: rgba(255, 255, 255, 0.586);
-}
-
 @font-face {
   font-family: 'NEXONLv1GothicRegular';
   src: url('./fonts/NEXONLv1GothicRegular.ttf');

@@ -3,21 +3,33 @@ import { AnswerDataContext } from '../App';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import styled from 'styled-components';
+import SNS from '../components/SNS';
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  position: fixed;
+  grid-template-columns: (2 1fr);
+  grid-template-areas: 'ResultBox SNS';
   width: 100%;
   height: 100vh;
-  position: fixed;
 `;
 
 const ResultBox = styled.div`
+  grid-area: ResultBox;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
+  font-size: 1.5rem;
+`;
+
+const SNSBox = styled.div`
+  grid-area: SNS;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ResultText = styled.div`
@@ -27,6 +39,7 @@ const ResultText = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  white-space: pre-wrap;
 `;
 
 const FoodImg = styled.img`
@@ -36,29 +49,19 @@ const FoodImg = styled.img`
   border-radius: 1.5rem;
 `;
 
-const SNSIcon = styled.img`
-  width: 3rem;
-  height: 3rem;
-`;
-
-const SNSBoxContainer = styled.div`
+const BtnCollection = styled.div`
   display: flex;
-  flex-direction: row;
-  width: 10rem;
-  height: 5rem;
-  background: #e8e8e8;
+  flex-direction: column;
+  width: 30rem;
+  height: 20rem;
+  background-color: aliceblue;
   border-radius: 1.5rem;
+  border: 1rem solid #fff;
 `;
 
-const SNSBox = () => {
-  return (
-    <SNSBoxContainer>
-      <SNSIcon src="../icon/icon-link.png" />
-      <SNSIcon src="../icon/icon-kakaotalk.png" />
-      <SNSIcon src="../icon/icon-twitter.png" />
-    </SNSBoxContainer>
-  );
-};
+const DecisionBtn = styled.div`
+  display: flex;
+`;
 
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
@@ -98,8 +101,10 @@ const Result = () => {
             </div>
           }
         </ResultBox>
+        <SNSBox>
+          <SNS />
+        </SNSBox>
       </Container>
-      <SNSBox />
     </>
   );
 };

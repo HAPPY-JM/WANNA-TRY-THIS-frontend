@@ -8,10 +8,11 @@ const Container = styled.div`
   bottom: 1rem;
   font-family: 'TmoneyRoundWindRegular';
   font-size: 1rem;
-  color: white;
+  color: #707070;
   justify-content: center;
   align-items: center;
   text-align: center;
+  user-select: none;
 `;
 
 const Footer = () => {
