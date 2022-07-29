@@ -34,8 +34,8 @@ const Survey = () => {
       <Container>
         <ProgressBar />
         <Question />
-        <SurveyFooter />
       </Container>
+      <SurveyFooter>ⓒ 2022 Elice Team-5. all rights reserved.</SurveyFooter>
     </>
   );
 };

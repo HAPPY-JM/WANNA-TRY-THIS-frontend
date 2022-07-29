@@ -21,16 +21,6 @@ const LoginContainer = styled.div`
   margin-right: 2rem;
 `;
 
-// const Header = () => {
-//   const [isLogIn, setIsLogIn] = useState(false);
-
-//   useEffect(() => {
-//     const token = localStorage.getItem('token');
-//     if (token) {
-//       setIsLogIn(true);
-//     }
-//   }, []);
-
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
   if (path_list.find((path) => path === window.location.pathname) === undefined)
