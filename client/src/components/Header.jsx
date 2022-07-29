@@ -22,6 +22,18 @@ const LoginContainer = styled.div`
   margin-right: 2rem;
 `;
 
+const NickNameContainer = styled.div`
+  display: flex;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+  margin-right: 1rem;
+`;
+
+const NickName = () => {};
+
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
   const [cookies, removeCookie] = useCookies(['jwtToken']);
@@ -48,6 +60,9 @@ const Header = () => {
     <Container>
       <Logo />
       <LoginContainer>
+        <NickNameContainer>
+          <NickName />님 하이!
+        </NickNameContainer>
         {isLoginNow ? <button onClick={userLogout}>Log Out</button> : <Modal />}
       </LoginContainer>
     </Container>
