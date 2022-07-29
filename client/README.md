@@ -73,7 +73,49 @@
   <br>
 
 
-## 5. 구성원 역할
+## 5. Architecture
+### Client
+### Back
+```
+src
+ ┣ db
+ ┃ ┣ models
+ ┃ ┃ ┣ food-model.js
+ ┃ ┃ ┗ user-model.js
+ ┃ ┣ schemas
+ ┃ ┃ ┣ food-schema.js
+ ┃ ┃ ┗ user-schema.js
+ ┃ ┗ index.js
+ ┣ middlewares
+ ┃ ┣ error-handler.js
+ ┃ ┣ index.js
+ ┃ ┣ login-required.js
+ ┃ ┗ user-validator.js
+ ┣ passport
+ ┃ ┣ googleStrategy.js
+ ┃ ┣ index.js
+ ┃ ┣ kakaoStrategy.js
+ ┃ ┗ naverStrategy.js
+ ┣ routers
+ ┃ ┣ auth-router.js
+ ┃ ┣ food-router.js
+ ┃ ┣ index.js
+ ┃ ┗ user-router.js
+ ┣ services
+ ┃ ┣ food-service.js
+ ┃ ┣ index.js
+ ┃ ┗ user-service.js
+ ┣ test
+ ┃ ┣ auth.spec.js
+ ┃ ┣ food.spec.js
+ ┃ ┗ user.spec.js
+ ┣ utils
+ ┃ ┣ index.js
+ ┃ ┗ setUserToken.js
+ ┗ app.js
+```
+
+## 6. 구성원 역할
 
 |  이름  | 역할             |
 | :----: | ---------------- |
