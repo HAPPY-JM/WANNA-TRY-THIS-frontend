@@ -75,6 +75,7 @@
 
 ## 5. Architecture
 ### Client
+<details><summary>Click to expand</summary>
 ```
 src
  ┣ components
@@ -110,6 +111,8 @@ src
  ┣ reportWebVitals.js
  ┗ setupTests.js
 ```
+</details>
+
 
 ### Back
 ```
