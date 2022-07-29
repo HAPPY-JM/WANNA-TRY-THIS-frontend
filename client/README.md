@@ -3,7 +3,7 @@
 <br>
 <br>
 
-## 서비스 링크: `kdt-sw2-busan-team05.elicecoding.com`
+## 서비스 링크: [이거머글랭?](http://kdt-sw2-busan-team05.elicecoding.com/)
 
 ## 1. 기획 의도 & 목적
 
