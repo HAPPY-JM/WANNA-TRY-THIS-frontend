@@ -34,8 +34,8 @@ const Survey = () => {
       <Container>
         <ProgressBar />
         <Question />
+        <SurveyFooter />
       </Container>
-      <SurveyFooter />
     </>
   );
 };

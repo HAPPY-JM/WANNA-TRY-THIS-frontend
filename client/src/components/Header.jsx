@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from './Logo';
 import Modal from './Modal';
 
 const Container = styled.div`
@@ -8,9 +9,16 @@ const Container = styled.div`
   position: absolute;
   background: linear-gradient(to right, #d8e9f0, pink);
   display: flex;
-  justify-content: right;
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   z-index: 99;
+`;
+
+const LoginContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-right: 2rem;
 `;
 
 // const Header = () => {
@@ -30,8 +38,11 @@ const Header = () => {
 
   return (
     <Container>
-      <Modal />
-      <button>Log Out</button>
+      <Logo />
+      <LoginContainer>
+        <Modal />
+        <button>Log Out</button>
+      </LoginContainer>
     </Container>
   );
 };

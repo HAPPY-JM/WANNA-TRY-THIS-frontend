@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SNSBoxContainer = styled.div`
-  grid-area: SNS;
   display: flex;
   flex-direction: row;
   width: 20rem;
