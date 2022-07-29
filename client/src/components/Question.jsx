@@ -1,72 +1,196 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react';
+import { AnswerDataContext } from '../App';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
-import styled from "styled-components";
+const ContainerQuestion = styled.div`
+  width: 4rem;
+  height: 3rem;
+  font-size: 2rem;
+`;
 
+const QuestionView = styled.div`
+  display: flex;
+  height: 150px;
+  padding-top: 5rem;
+  padding-bottom: 4rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #484848;
+  border-radius: 10px;
+`;
 
-    const Container = styled.div`
-        padding: 10px;
-        background-color:whitesmoke;
-        display : flex;
-        flex-direction : column;
-        align-items : center;
+const AnswerButton = styled(motion.button)`
+  width: 10rem;
+  height: 6rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  background: white;
+  margin: 0.5rem;
+  &:hover,
+  :focus {
+    background: whitesmoke;
+  }
+`;
 
-`
+const AnswerContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
-    const ContainerButton = styled.div`
-`
+const question_list = [
+  ['나이를 알려주세요.'],
+  ['오늘 기분은 어떤가요?'],
+  ['오늘 땡기는 종류는 무엇인가요?'],
+  ['1인분 예산은 어느 정도 인가요?'],
+];
 
-    const QuestionView = styled.div`
-        height: 150px;
-        width: 300px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-        background:#F5F5F5;
-        border-radius: 10px;
-    `
-
-
-    const Abutton = styled.button`
-        height: 2.25rem;
-        font-size: 1rem;
-        border-radius: 10px;
-        margin-left: 10px;
-        background: white;
-    `
-
-
-
-    const questionList = [
-        ["오늘 기분은 어떤가요?"],
-        ["오늘 땡기는 종류는 무엇인가요?"],
-        ["1인분 예산을 알려주세요."]        
-]
-    const answerList1 = [
-        ["10~20대", "30대~40대", "50대 이상"],
-        ["좋음", "그저 그럼", "나쁨"],
-        ["육류", "해산물", "그외"],
-        ["만원 이하", "만원~3만원", "3만원 이상"]]
+const answer_list = [
+  [
+    ['young', '20대 이하', 'age'],
+    ['middle', '30대~40대', 'age'],
+    ['old', '50대 이상', 'age'],
+  ],
+  [
+    ['good', '좋음', 'mood'],
+    ['soso', '그저 그럼', 'mood'],
+    ['bad', '나쁨', 'mood'],
+  ],
+  [
+    ['meat', '육류', 'ingredient'],
+    ['sea', '해산물', 'ingredient'],
+    ['etc', '비건', 'ingredient'],
+  ],
+  [
+    ['cheap', '만원 이하', 'money'],
+    ['middle', '만원~3만원', 'money'],
+    ['any', '상관없음', 'money'],
+  ],
+];
 
 const Question = () => {
+  const [question, setQuestion] = useState(question_list[0][0]);
+  const [answers, setAnswer] = useState(answer_list[0]);
+  const { setAnswerData, barcount, setBarcount } =
+    useContext(AnswerDataContext);
 
-    const [question, setQuestion] = useState("나이가 어떻게 되시나요?")
-    const [answer, setAnswer] = useState(["10~20대", "30대~40대", "50대 이상"])
-    const answerList = answer.map((el, idx) => (<Abutton key={`button ${idx}`}>{el}</Abutton>))
-    const onClickAnswer = () => {
-        console.log("클릭했다리")
-        setQuestion()
-        setAnswer()
-
+  const onClickSubmit = (e) => {
+    const { name, value } = e.target;
+    // 코드 리팩토링 에정
+    if (question === question_list[0][0]) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+        return data;
+      });
+      setBarcount(barcount + 1);
+      setQuestion(question_list[1][0]);
+      setAnswer(answer_list[1]);
+    } else if (question === question_list[1][0]) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+        return data;
+      });
+      setBarcount(barcount + 1);
+      setQuestion(question_list[2][0]);
+      setAnswer(answer_list[2]);
+    } else if (question === question_list[2][0]) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+        return data;
+      });
+      setBarcount(barcount + 1);
+      setQuestion(question_list[3][0]);
+      setAnswer(answer_list[3]);
+    } else if (question === question_list[3][0]) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+        return data;
+      });
+      setBarcount(barcount + 1);
     }
+  };
 
+  const onClickBack = () => {
+    if (question === question_list[1][0]) {
+      setQuestion(question_list[0][0]);
+      setAnswer(answer_list[0]);
+      setBarcount(barcount - 1);
+    } else if (question === question_list[2][0]) {
+      setQuestion(question_list[1][0]);
+      setAnswer(answer_list[1]);
+      setBarcount(barcount - 1);
+    } else if (question === question_list[3][0]) {
+      setQuestion(question_list[2][0]);
+      setAnswer(answer_list[2]);
+      setBarcount(barcount - 1);
+    }
+  };
+  console.log(answers);
 
+  const BackBtn = styled.div`
+    cursor: pointer;
+    padding: 2rem;
+  `;
 
-    return (<Container>
-        <QuestionView>{question}</QuestionView>
-        <ContainerButton onClick={onClickAnswer}>{answerList}</ContainerButton>
+  const backBtn =
+    question !== '나이를 알려주세요.' ? (
+      <BackBtn onClick={onClickBack}>
+        <img src="../button-back.png" alt="뒤로가기" width={32} />
+      </BackBtn>
+    ) : (
+      false
+    );
+
+  const answerBtn = answers.map((answer, idx) =>
+    question !== '1인분 예산은 어느 정도 인가요?' ? (
+      <AnswerButton
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ borderRadius: '50%' }}
+        onClick={onClickSubmit}
+        key={`answer+${idx}`}
+        value={answer[0]}
+        name={answer[2]}
+      >
+        {answer[1]}
+      </AnswerButton>
+    ) : (
+      <Link to="/Result">
+        <AnswerButton
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ borderRadius: '50%' }}
+          onClick={onClickSubmit}
+          key={`answer+${idx}`}
+          value={answer[0]}
+          name={answer[2]}
+        >
+          {answer[1]}
+        </AnswerButton>
+      </Link>
+    ),
+  );
+
+  return (
+    <Container>
+      <QuestionView>
+        {backBtn}
+        {question}
+      </QuestionView>
+      <AnswerContainer>{answerBtn}</AnswerContainer>
     </Container>
-    )
-}
+  );
+};
 
 export default Question;

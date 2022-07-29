@@ -1,0 +1,66 @@
+> .modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6); ///배경에 픽스를 주고 투명도를 준다.
+  z-index: 999;
+  > .loginModal {
+    width: 480px;
+    height: 621px;
+    background: white;
+    position: relative;
+    box-sizing: border-box;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    z-index: 999;
+
+    .close {
+      float: right;
+      font-size: 25px;
+    }
+    .modalContents {
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      padding: 0 20px 32px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      > .signinIcon {
+        width: 150px;
+        margin: 0 auto;
+      }
+
+      > .loginMid {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .autoLogin {
+          font-size: 12px;
+          color: #8d8d8d;
+          line-height: 3;
+        }
+      }
+      > .socialBox {
+        margin-bottom: 30px;
+        z-index: 999;
+      }
+    }
+  }
+}
+
+button {
+  width: auto;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.392);
+  border: none;
+  border-radius: 1rem;
+  font-family: 'NEXONLv1GothicRegular';
+  font-size: 1.5rem;
+  text-align: center;
+}

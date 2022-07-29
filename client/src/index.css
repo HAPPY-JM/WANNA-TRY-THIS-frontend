@@ -1,8 +1,8 @@
 body {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'NEXONLv1GothicRegular', 'NEXONLv1GothicBold',
+    'TmoneyRoundWindRegular';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +10,41 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  height: 3rem;
+  background-color: rgba(255, 255, 255, 0.392);
+  border: none;
+  border-radius: 1rem;
+  font-family: 'NEXONLv1GothicRegular';
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+@font-face {
+  font-family: 'NEXONLv1GothicRegular';
+  src: url('./fonts/NEXONLv1GothicRegular.ttf');
+}
+
+@font-face {
+  font-family: 'NEXONLv1GothicBold';
+  src: url('./fonts/NEXONLv1GothicBold.ttf');
+}
+
+@font-face {
+  font-family: 'TmoneyRoundWindRegular';
+  src: url('./fonts/TmoneyRoundWindRegular.ttf');
 }

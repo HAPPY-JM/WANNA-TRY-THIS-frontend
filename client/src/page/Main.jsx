@@ -1,51 +1,63 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
+import Footer from '../components/Footer';
+import { LoginComponent } from '../components/LoginComponent';
 
 const Container = styled.div`
-  padding: 10px;
- background-color:whitesmoke;
- display : flex;
- flex-direction : column;
- align-items : center;
-
-`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  padding-top: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'NEXON Lv1 Gothic OTF';
+`;
 
 const ButtonContainer = styled.div`
-	margin-top: 50px;
-`
-const Title = styled.h1`
-	font-weight: 800;
-	text-align: center;
-`
-const MainButton = styled.button`
-	border: none ;
-	color :white;
-	width: 100px;
-	height:  100px;
-	text-align: center;
-	border-radius: 10px;
-	background-color: ${props => props.primary ? "black" : "white"};
-	color : ${props=>props.primary ? "white":"black"};
+  padding: 3rem;
+`;
 
-	+ button {
-		margin-left: 100px;
-	}
-`
+const MainButton = styled.button`
+  width: 15rem;
+  height: 15rem;
+  font-family: 'NEXONLv1GothicBold';
+  font-size: 2rem;
+  text-align: center;
+  border: none;
+  border-radius: 2rem;
+  background-color: ${(props) => (props.primary ? '#FEE6E6' : '#D9EAF1')};
+  color: ${(props) => (props.primary ? '#F38F88' : '#70C4E7')};
+
+  + button {
+    margin-left: 2rem;
+  }
+`;
 
 const Main = () => {
-	return (
-		<Container>
-			<Title>이거 머글랭?</Title>
-			 <ButtonContainer>
-				<MainButton>골라줄개!</MainButton>
-				<Link to ="/Survey">
-					<MainButton primary>골라볼래?</MainButton>
-				</Link>
-			</ButtonContainer>
-		</Container>
-	);
+  return (
+    <>
+      <Container>
+        <div className="title">
+          <img
+            className="title-logo"
+            alt="타이틀 로고"
+            src="../logo/logo-wanna-try-this.png"
+            width={500}
+          />
+        </div>
+        <ButtonContainer>
+          <MainButton>골라볼래?</MainButton>
+          <Link to="/Survey">
+            <MainButton primary>골라줄게!</MainButton>
+          </Link>
+        </ButtonContainer>
+      </Container>
+      <Footer>ⓒ 2022 Elice Team-5. all rights reserved.</Footer>
+    </>
+  );
 };
 
 export default Main;
