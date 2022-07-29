@@ -3,6 +3,8 @@
 <br>
 <br>
 
+## 서비스 링크: `kdt-sw2-busan-team05.elicecoding.com`
+
 ## 1. 기획 의도 & 목적
 
 > ### 🤔"오늘은 뭐 먹지?" <br>
