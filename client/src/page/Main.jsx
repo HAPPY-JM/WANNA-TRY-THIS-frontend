@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
-import { LoginComponent } from '../components/LoginComponent';
 
 const Container = styled.div`
   width: 100%;
@@ -21,6 +20,12 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 3rem;
+`;
+
+const Character = styled.img`
+  position: absolute;
+  right: 0;
+  bottom: 0;
 `;
 
 const MainButton = styled(motion.div)`
@@ -70,7 +75,8 @@ const Main = () => {
           </Link>
         </ButtonContainer>
       </Container>
-      <Footer>ⓒ 2022 Elice Team-5. all rights reserved.</Footer>
+      <Character img src="../public/character.png" />
+      <Footer />
     </>
   );
 };

@@ -25,12 +25,14 @@ li {
 
 button {
   cursor: pointer;
+  width: 8rem;
   height: 3rem;
   background-color: rgba(255, 255, 255, 0.392);
   border: none;
   border-radius: 1rem;
   font-family: 'NEXONLv1GothicRegular';
   font-size: 1.5rem;
+  color: #707070;
   text-align: center;
 }
 

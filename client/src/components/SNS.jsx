@@ -10,6 +10,7 @@ const SNSBoxContainer = styled.div`
   border-radius: 1.5rem;
   justify-content: center;
   align-items: center;
+  margin-top: 1.5rem;
 `;
 
 const SNSIcon = styled.img`
