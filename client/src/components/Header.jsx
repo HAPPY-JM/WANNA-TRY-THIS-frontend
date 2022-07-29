@@ -25,7 +25,6 @@ const LoginContainer = styled.div`
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
   const [cookies, removeCookie] = useCookies(['jwtToken']);
-  console.log(cookies);
   const [isLoginNow, setIsLoginNow] = useState(false);
   const token = cookies.jwtToken;
 
@@ -37,7 +36,6 @@ const Header = () => {
     setIsLoginNow(true);
     return;
   }, [token]);
-  console.log('로그인 여부: ', isLoginNow);
 
   if (path_list.find((path) => path === window.location.pathname) === undefined)
     return null;
