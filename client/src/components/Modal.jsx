@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 
@@ -28,7 +28,8 @@ const Container = styled.div`
 `;
 
 const Modal = () => {
-  const { isOpen, setIsOpen } = useContext(AnswerDataContext);
+  // const { isOpen, setIsOpen } = useContext(AnswerDataContext);
+  const [isOpen ,setIsOpen] =useState(true)
   const openModalHandler = () => {
     setIsOpen(!isOpen);
   };
