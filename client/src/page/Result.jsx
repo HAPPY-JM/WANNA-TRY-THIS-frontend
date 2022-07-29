@@ -65,6 +65,7 @@ const DecisionBtn = styled.div`
 
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
+
   const { data, isLoading, isError, error } = useQuery(
     'super-name',
     () => {
@@ -81,7 +82,13 @@ const Result = () => {
     return <h1>{error}</h1>;
   }
 
+  localStorage.setItem('foodResult', JSON.stringify(data.data));
+  const foodDatas = JSON.parse(localStorage.getItem('foodResult'));
+
   const randomNum = Math.floor(Math.random() * data.data.length);
+
+  localStorage.setItem('randomNum', randomNum);
+  const localRandomNum = localStorage.getItem('randomNum');
 
   return (
     <>
