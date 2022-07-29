@@ -139,7 +139,6 @@ const Question = () => {
       setBarcount(barcount - 1);
     }
   };
-  console.log(answers);
 
   const BackBtn = styled.div`
     cursor: pointer;
