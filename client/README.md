@@ -1,9 +1,8 @@
 <div align="center"> <h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
-<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> </div>
+<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> <br> <br>
+<h2>서비스 링크: [이거머글랭?](http://kdt-sw2-busan-team05.elicecoding.com/)</h2> </div>
 <br>
 <br>
-
-## 서비스 링크: [이거머글랭?](http://kdt-sw2-busan-team05.elicecoding.com/)
 
 ## 1. 기획 의도 & 목적
 
