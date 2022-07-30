@@ -66,7 +66,7 @@ export const LoginComponent = () => {
   // localStorage.setItem('token', data);
   return (
     <div>
-      <a href="http://kdt-sw2-busan-team05.elicecoding.com/api/auth/kakao">
+      <a href="http://localhost:5000/api/auth/kakao">
         <img
           className="kakaoLogo"
           src="../login/login-kakao.png"
@@ -77,7 +77,7 @@ export const LoginComponent = () => {
         />
       </a>
       <a
-        href="http://kdt-sw2-busan-team05.elicecoding.com/api/auth/naver"
+        href="http://localhost:5000/api/auth/naver"
         target="_blank"
         rel="noreferrer"
       >
@@ -90,7 +90,7 @@ export const LoginComponent = () => {
         />
       </a>
       <a
-        href="http://kdt-sw2-busan-team05.elicecoding.com/api/auth/google"
+        href="http://localhost:5000/api/auth/google"
         target="_blank"
         rel="noreferrer"
       >
