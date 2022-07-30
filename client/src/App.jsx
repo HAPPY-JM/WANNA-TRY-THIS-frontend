@@ -6,6 +6,7 @@ import Result from './page/Result';
 import NotFound from './page/NotFound';
 import Survey from './page/Survey';
 import Loading from './page/Loading';
+import LoadingNaver from './page/LoadingNaver';
 import MyPage from './page/MyPage';
 import EmptyPage from './page/EmptyPage';
 import { QueryClient, QueryClientProvider } from 'react-query';
@@ -47,6 +48,8 @@ const App = () => {
               <Route path="/Survey" element={<Survey />}></Route>
               <Route path="/Result" element={<Result />}></Route>
               <Route path="/Loading" element={<Loading />}></Route>
+                            <Route path="/LoadingNaver" element={<LoadingNaver />}></Route>
+
               <Route path="/MyPage" element={<MyPage />}></Route>
               <Route path="/EmptyPage" element={<EmptyPage />} />
               <Route path="*" element={<NotFound />}></Route>
