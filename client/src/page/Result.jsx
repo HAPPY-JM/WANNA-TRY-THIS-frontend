@@ -73,28 +73,26 @@ const BtnCollection = styled.div`
   font-size: 1.5rem;
 `;
 
-
-
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
-   const [cookies]= useCookies(['jwtToken'])
+  const [cookies] = useCookies(['jwtToken']);
   const token = cookies.jwtToken;
-   const [addFood,setAddFood] = useState({"addFoodId":""})
-      const onClickFood = async () => {
-        setAddFood({
-          ...addFood,
-          "addFoodId":data.data[randomNum]._id
-        })
-        return await fetch("http://localhost:5000/api/user/food/", {
-      method: "PATCH",
+  const onClickFood = async (foodId) => {
+    const addFood = {
+      addFoodId: foodId,
+    };
+    return await fetch('http://localhost:5000/api/user/food/', {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${token}`,
       },
-      body :  JSON.stringify(addFood)   
-    }).then(res=>res.json())
-      .then(data=>console.log(data))
-  }
+      body: JSON.stringify(addFood),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then(() => alert('정상적으로 통계에 반영되었습니다.'));
+  };
   const { data, isLoading, isError, error } = useQuery(
     'super-name',
     () => {
@@ -112,7 +110,7 @@ const Result = () => {
   }
 
   const randomNum = Math.floor(Math.random() * data.data.length);
-  console.log(data.data[randomNum]._id)
+  console.log(data.data[randomNum]._id);
   return (
     <>
       <Container>
@@ -132,18 +130,26 @@ const Result = () => {
           }
         </ResultBox>
         <SNSBox>
-            <BtnCollection onClick={onClickFood}>이 메뉴로 결정하기</BtnCollection>
+          <Link to="/">
+            <BtnCollection
+              onClick={() => {
+                onClickFood(data.data[randomNum]._id);
+              }}
+            >
+              이 메뉴로 결정하기
+            </BtnCollection>
+          </Link>
           <Link to="">
             <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
           </Link>
-          <Link to="/">
+          <Link to="/Survey">
             <BtnCollection>메뉴 선택 다시하기</BtnCollection>
           </Link>
 
           <SNS />
         </SNSBox>
       </Container>
-          <Footer />
+      <Footer />
     </>
   );
 };
