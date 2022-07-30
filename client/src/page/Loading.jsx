@@ -23,7 +23,7 @@ const Message = styled.div`
   padding: 3rem;
 `;
 
-const LoginLoading = () => {
+const Loading = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,4 +38,4 @@ const LoginLoading = () => {
   );
 };
 
-export default LoginLoading;
+export default Loading;
