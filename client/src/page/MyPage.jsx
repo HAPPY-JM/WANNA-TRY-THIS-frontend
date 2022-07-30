@@ -19,7 +19,7 @@ const MyPage = () => {
     'userID',
     async () => {
       const response = await axios.get(
-        'http://kdt-sw2-busan-team05.elicecoding.com/api/user/62de7d5a09eb4d48365617c9',
+        'http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/62de7d5a09eb4d48365617c9',
       );
       const resData = response.data;
       return resData;

@@ -81,7 +81,7 @@ const Result = () => {
     const addFood = {
       addFoodId: foodId,
     };
-    return await fetch('http://kdt-sw2-busan-team05.elicecoding.com/api/user/food/', {
+    return await fetch('http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/food/', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ const Result = () => {
     'super-name',
     () => {
       return axios.get(
-        `http://kdt-sw2-busan-team05.elicecoding.com/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
+        `http://kdt-sw2-busan-team05.elicecoding.com:5002/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
       );
     },
     { staleTime: Infinity },
