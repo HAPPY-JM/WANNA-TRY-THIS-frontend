@@ -139,9 +139,9 @@ const Result = () => {
               이 메뉴로 결정하기
             </BtnCollection>
           </Link>
-          <Link to="">
+          {/* <Link to="">
             <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
-          </Link>
+          </Link> */}
           <Link to="/Survey">
             <BtnCollection>메뉴 선택 다시하기</BtnCollection>
           </Link>
