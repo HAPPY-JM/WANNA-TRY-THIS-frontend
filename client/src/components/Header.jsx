@@ -46,7 +46,7 @@ const Header = () => {
   //   return axios.get('http://localhost:5000/api/user')
   // },{ staleTime: Infinity },)
 
-    fetch('http://kdt-sw2-busan-team05.elicecoding.com/api/user/', {
+    fetch('http://localhost:5000/api/user/', {
       headers: {
       'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
