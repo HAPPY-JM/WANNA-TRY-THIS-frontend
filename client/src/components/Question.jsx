@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -10,11 +10,6 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const ContainerQuestion = styled.div`
-  width: 4rem;
-  height: 3rem;
-  font-size: 2rem;
-`;
 
 const QuestionView = styled.div`
   display: flex;
@@ -47,6 +42,26 @@ const AnswerContainer = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+
+// 아래 객채 형태 state 사용을 줄이는 방향으로 리팩토링 예정
+// const obj = [
+//   {
+//     question: '질문1',
+//     answerType: 'age',
+//     answer: [
+//       {
+//         value: 'young',
+//         text: '20대 이하',
+//       },
+//       {
+//         value: 'middle',
+//         text: '30대~40대',
+//       },
+//     ]
+//   },
+
+
 
 const question_list = [
   ['나이를 알려주세요.'],
@@ -86,7 +101,6 @@ const Question = () => {
 
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
-    // 코드 리팩토링 에정
     if (question === question_list[0][0]) {
       setAnswerData((answers) => {
         let data = { ...answers };

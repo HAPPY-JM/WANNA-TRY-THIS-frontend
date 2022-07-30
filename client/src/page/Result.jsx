@@ -47,10 +47,7 @@ const ResultText = styled.div`
   white-space: pre-wrap;
 `;
 
-const Name = styled.div`
-  font-family: 'NEXONLv1GothicBold';
-  font-size: 2rem;
-`;
+
 
 const FoodImg = styled.img`
   width: 300px;
@@ -139,9 +136,6 @@ const Result = () => {
               이 메뉴로 결정하기
             </BtnCollection>
           </Link>
-          {/* <Link to="">
-            <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
-          </Link> */}
           <Link to="/Survey">
             <BtnCollection>메뉴 선택 다시하기</BtnCollection>
           </Link>
