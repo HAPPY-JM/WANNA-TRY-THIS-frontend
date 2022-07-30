@@ -167,7 +167,7 @@ const Question = () => {
         {answer[1]}
       </AnswerButton>
     ) : (
-      <Link to="/SurveyLoading">
+      <Link to="/Result">
         <AnswerButton
           whileHover={{ scale: 1.2 }}
           whileTap={{ borderRadius: '50%' }}
