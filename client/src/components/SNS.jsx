@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SNSBoxContainer = styled.div`
-  grid-area: SNS;
   display: flex;
   flex-direction: row;
   width: 20rem;
@@ -11,6 +10,7 @@ const SNSBoxContainer = styled.div`
   border-radius: 1.5rem;
   justify-content: center;
   align-items: center;
+  margin-top: 1.5rem;
 `;
 
 const SNSIcon = styled.img`
@@ -18,6 +18,14 @@ const SNSIcon = styled.img`
   height: 3rem;
   padding: 1rem;
 `;
+
+const ShareTwitter = () => {
+  const sendText = '오늘 먹을 것!';
+  let sendUrl = ' url ';
+  window.open(
+    'https://twitter.com/intent/tweet?text=' + sendText + '&url=' + sendUrl,
+  );
+};
 
 const SNS = () => {
   return (

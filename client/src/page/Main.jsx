@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
-import { LoginComponent } from '../components/LoginComponent';
 
 const Container = styled.div`
   width: 100%;
@@ -17,12 +17,25 @@ const Container = styled.div`
 `;
 
 const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
   padding: 3rem;
 `;
 
-const MainButton = styled.button`
+const Character = styled.img`
+  width: 10rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+`;
+
+const MainButton = styled(motion.div)`
+  display: flex;
+  flex-direction: row;
   width: 15rem;
   height: 15rem;
+  justify-content: center;
+  align-items: center;
   font-family: 'NEXONLv1GothicBold';
   font-size: 2rem;
   text-align: center;
@@ -30,10 +43,7 @@ const MainButton = styled.button`
   border-radius: 2rem;
   background-color: ${(props) => (props.primary ? '#FEE6E6' : '#D9EAF1')};
   color: ${(props) => (props.primary ? '#F38F88' : '#70C4E7')};
-
-  + button {
-    margin-left: 2rem;
-  }
+  margin-right: 2rem;
 `;
 
 const Main = () => {
@@ -49,13 +59,20 @@ const Main = () => {
           />
         </div>
         <ButtonContainer>
-          <MainButton>골라볼래?</MainButton>
+
           <Link to="/Survey">
-            <MainButton primary>골라줄게!</MainButton>
+            <MainButton
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ borderRadius: '50%' }}
+              primary
+            >
+              골라줄게!
+            </MainButton>
           </Link>
         </ButtonContainer>
       </Container>
-      <Footer>ⓒ 2022 Elice Team-5. all rights reserved.</Footer>
+      <Character src="./character.png" />
+      <Footer />
     </>
   );
 };

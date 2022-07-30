@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
 import PuffLoader from 'react-spinners/PuffLoader';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const Container = styled.div`
   display: flex;
@@ -23,11 +24,16 @@ const Message = styled.div`
 `;
 
 const Loading = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => navigate(-1), 1500);
+  });
+
   return (
     <Container>
-      <Header />
       <PuffLoader color="#fff" size={300} speedMultiplier={0.5} />
-      <Message>두근두근 과연 결과는?!</Message>
+      <Message>로그인중이에요!</Message>
     </Container>
   );
 };

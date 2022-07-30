@@ -3,6 +3,7 @@ import { AnswerDataContext } from '../App';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -138,7 +139,6 @@ const Question = () => {
       setBarcount(barcount - 1);
     }
   };
-  console.log(answers);
 
   const BackBtn = styled.div`
     cursor: pointer;

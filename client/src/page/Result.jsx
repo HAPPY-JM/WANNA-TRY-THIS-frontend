@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AnswerDataContext } from '../App';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import styled from 'styled-components';
 import SNS from '../components/SNS';
-
+import Footer from '../components/Footer';
+import { useCookies } from 'react-cookie';
 const Container = styled.div`
   display: grid;
   position: fixed;
@@ -21,7 +23,9 @@ const ResultBox = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  color: #707070;
   font-size: 1.5rem;
+  margin-top: 2rem;
 `;
 
 const SNSBox = styled.div`
@@ -30,6 +34,7 @@ const SNSBox = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 `;
 
 const ResultText = styled.div`
@@ -42,6 +47,11 @@ const ResultText = styled.div`
   white-space: pre-wrap;
 `;
 
+const Name = styled.div`
+  font-family: 'NEXONLv1GothicBold';
+  font-size: 2rem;
+`;
+
 const FoodImg = styled.img`
   width: 300px;
   height: 300px;
@@ -52,24 +62,42 @@ const FoodImg = styled.img`
 const BtnCollection = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30rem;
-  height: 20rem;
-  background-color: aliceblue;
-  border-radius: 1.5rem;
+  width: 21rem;
+  height: 4.5rem;
+  background-color: #fde6e6;
+  border-radius: 5rem;
   border: 1rem solid #fff;
-`;
-
-const DecisionBtn = styled.div`
-  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'NEXONLv1GothicBold';
+  font-size: 1.5rem;
 `;
 
 const Result = () => {
   const { answerData } = useContext(AnswerDataContext);
+  const [cookies] = useCookies(['jwtToken']);
+  const token = cookies.jwtToken;
+  const onClickFood = async (foodId) => {
+    const addFood = {
+      addFoodId: foodId,
+    };
+    return await fetch('http://kdt-sw2-busan-team05.elicecoding.com/api/user/food/', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(addFood),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .then(() => alert('정상적으로 통계에 반영되었습니다.'));
+  };
   const { data, isLoading, isError, error } = useQuery(
     'super-name',
     () => {
       return axios.get(
-        `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
+        `http://kdt-sw2-busan-team05.elicecoding.com/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
       );
     },
     { staleTime: Infinity },
@@ -82,7 +110,7 @@ const Result = () => {
   }
 
   const randomNum = Math.floor(Math.random() * data.data.length);
-
+  console.log(data.data[randomNum]._id);
   return (
     <>
       <Container>
@@ -102,9 +130,26 @@ const Result = () => {
           }
         </ResultBox>
         <SNSBox>
+          <Link to="/">
+            <BtnCollection
+              onClick={() => {
+                onClickFood(data.data[randomNum]._id);
+              }}
+            >
+              이 메뉴로 결정하기
+            </BtnCollection>
+          </Link>
+          {/* <Link to="">
+            <BtnCollection>나의 메뉴 랜덤뽑기</BtnCollection>
+          </Link> */}
+          <Link to="/Survey">
+            <BtnCollection>메뉴 선택 다시하기</BtnCollection>
+          </Link>
+
           <SNS />
         </SNSBox>
       </Container>
+      <Footer />
     </>
   );
 };
