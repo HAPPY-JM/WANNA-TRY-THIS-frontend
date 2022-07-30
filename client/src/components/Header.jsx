@@ -21,6 +21,16 @@ const LoginContainer = styled.div`
   flex-direction: row;
   margin-right: 2rem;
 `;
+const NickNameContainer = styled.div`
+  display: flex;
+  font-family: 'TmoneyRoundWindRegular';
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  color: #313131;
+  margin-right: 1rem;
+`;
+
 
 const NickNameContainer = styled.div`
   display: flex;
@@ -38,8 +48,32 @@ const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
   const [cookies, removeCookie] = useCookies(['jwtToken']);
   const [isLoginNow, setIsLoginNow] = useState(false);
+<<<<<<< Updated upstream
   const token = cookies.jwtToken;
 
+=======
+  const [userId,setUserId]=useState("")
+  const token = cookies.jwtToken;
+
+  // const { data } = useQuery("userId", () => {
+  //   return axios.get('http://localhost:5000/api/user')
+  // },{ staleTime: Infinity },)
+
+    fetch('http://localhost:5000/api/user/', {
+      headers: {
+      'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+    }
+    }).then(res => res.json())
+      .then(data => setUserId(data.userNick)
+        // setUserId(({
+        // ...userId,
+        // "userId":data.userId
+        // }))
+      )
+  
+  
+>>>>>>> Stashed changes
   useEffect(() => {
     if (!token || token === 'undefined') {
       setIsLoginNow(false);
@@ -61,8 +95,14 @@ const Header = () => {
       <Logo />
       <LoginContainer>
         <NickNameContainer>
+<<<<<<< Updated upstream
           <NickName />님 하이!
         </NickNameContainer>
+=======
+       {userId}{isLoginNow?"님 하이":null}
+        </NickNameContainer>
+
+>>>>>>> Stashed changes
         {isLoginNow ? <button onClick={userLogout}>Log Out</button> : <Modal />}
       </LoginContainer>
     </Container>
