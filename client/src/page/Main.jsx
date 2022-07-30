@@ -59,12 +59,7 @@ const Main = () => {
           />
         </div>
         <ButtonContainer>
-          <MainButton
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ borderRadius: '50%' }}
-          >
-            골라볼래?
-          </MainButton>
+
           <Link to="/Survey">
             <MainButton
               whileHover={{ scale: 1.2 }}

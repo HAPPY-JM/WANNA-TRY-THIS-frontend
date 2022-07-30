@@ -49,7 +49,7 @@ const Modal = () => {
         {!isOpen ? (
           <Container>
             <div>
-              <a href="http://localhost:5000/api/auth/kakao" rel="noreferrer">
+              <a href="http://kdt-sw2-busan-team05.elicecoding.com/api/auth/kakao" rel="noreferrer">
                 <ButtonContainer
                   whileHover={{ scale: 1.2 }}
                   className="kakaoLogo"
@@ -58,7 +58,7 @@ const Modal = () => {
                   value="kakao"
                 />
               </a>
-              <a href="http://localhost:5000/api/auth/naver" rel="noreferrer">
+              <a href="http://kdt-sw2-busan-team05.elicecoding.com/api/auth/naver" rel="noreferrer">
                 <ButtonContainer
                   whileHover={{ scale: 1.2 }}
                   className="naverLogo"
@@ -67,7 +67,7 @@ const Modal = () => {
                   value="naver"
                 />
               </a>
-              <a href="http://localhost:5000/api/auth/google" rel="noreferrer">
+              <a href="hhttp://kdt-sw2-busan-team05.elicecoding.com/api/auth/google" rel="noreferrer">
                 <ButtonContainer
                   whileHover={{ scale: 1.2 }}
                   className="googleLogo"
