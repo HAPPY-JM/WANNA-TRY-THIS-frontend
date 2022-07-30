@@ -57,7 +57,8 @@
 ### 🎨 기획
 
 - **와이어프레임** <br>
-  [<img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100">](https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962) <br>
+  [<img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100">](https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962) 
+  <br>
   <br>
 - **스토리보드 및 유저 시나리오**
   - 사용자는 홈 화면에서 골라볼래? 버튼을 클릭하면 모든 음식 데이터를 확인할 수 있다.
@@ -73,8 +74,12 @@
   - 사용자는 마이페이지에서 로그아웃 버튼을 눌러 로그아웃 할 수 있다.
   - 사용자는 마이페이지에서 닉네임을 변경할 수 있다.
   - 사용자는 마이페이지에서 지금까지 추천받은 음식에 대한 통계 데이터를 확인할 수 있다.
-
   <br>
+  <br>
+- **포스트맨** <br>
+[<img src="/uploads/d7d75ce5ffc1cf0098d2bf5c05ec65bb/image.png" width="100" height="100">](https://documenter.getpostman.com/view/20119504/UzR1J2S1) 
+  <br>
+  <br>  
  ### 📑 DevOps
 
 - **애자일 개발 프로세스** <br>
@@ -82,7 +87,7 @@
 
 
   <br>
-
+  <br>
 
 ## 5. 파일 및 폴더 구성
 ### Client
