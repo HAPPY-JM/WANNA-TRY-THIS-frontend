@@ -85,7 +85,7 @@
   <br>
 
 
-## 5. Architecture
+## 5. 파일 및 폴더 구성
 ### Client
   ```
 src
