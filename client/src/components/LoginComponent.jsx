@@ -1,48 +1,8 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { useQuery } from 'react-query';
-import axios from 'axios';
+
 export const LoginComponent = () => {
-  // const url = '';
-  // function onClick(e) {
-  //   console.log(e.tartge.value)
-  //   if (e.tartge.value === 'kakao') {
-  //     return url = url + 'kakao';
-  //   } else if (e.tartge.value === 'google') {
-  //     return url =url + 'google';
-  //   } else {
-  //     return url =url + 'navers';
-  //   }
-  // }
-  // const headers = {
-  //   'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-  //   Accept: '*/*',
-  // };
-  //  const { data, isLoading, isError, error } = useQuery(
-  //     'food',
-  //     () => {
-  //       return fetch('http://localhost:5000/api/auth/kakao', {
-  //         // method: "GET",
-  //         // headers: {
-  //         //               "Content-Type": "application/json",
-  //         //     "X-Requested-With": "XMLHttpRequest",
-  //         // }
-  //       });
-  //     },
-  //     {
-  //       onSuccess: (data) => {
-  //         console.log(data);
-  //       },
-  //       onError: (e) => {
-  //         console.log(e.message);
-  //       },
-  //     },
-  //   );
 
-  // fetch('http://localhost:5000/api/auth/google')
-  //   .then((res) => (res.json()))
-  //   .then((data)=>   console.log(data))
-
-  // localStorage.setItem('token', data);
   const { data } = useQuery(
     'login',
     async () => {
@@ -58,12 +18,7 @@ export const LoginComponent = () => {
       },
     },
   );
-  // const { data } = useQuery('aa', axios.get('http://localhost:5000/api/auth/google'), {
-  //   onSuccess: data => {
-  //    localStorage.setItem('token', data);
-  //   }
-  // });
-  // localStorage.setItem('token', data);
+
   return (
     <div>
       <a href="http://kdt-sw2-busan-team05.elicecoding.com:5002/api/auth/kakao">

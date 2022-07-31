@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import { useQuery } from 'react-query';
 import axios from 'axios';
-// import axios from 'axios';
+
 
 const Container = styled.div`
   display: flex;
@@ -23,7 +23,6 @@ const MyPage = () => {
       );
       const resData = response.data;
       return resData;
-      // console.log(data.map((todo)=>todo.data))
     },
     {
       onSuccess: (data) => {
@@ -32,19 +31,13 @@ const MyPage = () => {
       onError: (e) => {
         console.log(e.message);
       },
-      // select: (data) => {
-      //  const foodMostRecommandedFood = data.data.mostRecommandedFood
-      // return foodMostRecommandedFood
-      // }
+
     },
   );
-  //통계 데이터
-  console.log(data);
 
   return (
     <Container>
       <Header />
-      <div id="aa">{/* {data.mostRecommandedFood} */}</div>
     </Container>
   );
 };
