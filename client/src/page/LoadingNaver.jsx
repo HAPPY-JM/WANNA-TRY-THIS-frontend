@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PuffLoader from 'react-spinners/PuffLoader';
-import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 
 const Container = styled.div`
@@ -26,7 +25,7 @@ const Message = styled.div`
 const LoadingNaver = () => {
   useEffect(() => {
     setTimeout(() => {
-      <Link to="/" />;
+      this.props.nav('/');
     }, 1500);
   });
 

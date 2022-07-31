@@ -25,7 +25,7 @@ const Message = styled.div`
 
 const Loading = () => {
   useEffect(() => {
-    setTimeout(() => <Link to="/" />, 1500);
+    setTimeout(() => this.props.nav('/'), 1500);
   });
 
   return (
