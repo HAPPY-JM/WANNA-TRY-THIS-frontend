@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PuffLoader from 'react-spinners/PuffLoader';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -23,8 +24,10 @@ const Message = styled.div`
 `;
 
 const Loading = () => {
+  const navigate = useNavigate();
   useEffect(() => {
-    setTimeout(() => this.props.nav('/'), 1500);
+    setTimeout(() => navigate('/'), 1500);
+    // clearTimeout();
   });
 
   return (
