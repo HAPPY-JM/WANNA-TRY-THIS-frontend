@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import PuffLoader from 'react-spinners/PuffLoader';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Container = styled.div`
   display: flex;
@@ -24,18 +24,22 @@ const Message = styled.div`
 `;
 
 const LoadingNaver = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    setTimeout(() => {
-      navigate('/');
-    }, 1500);
-  });
+  const [change, setChange] = useState(true);
+  setTimeout(() => {
+    setChange(false);
+  }, 1500);
 
   return (
-    <Container>
-      <PuffLoader color="#fff" size={300} speedMultiplier={0.5} />
-      <Message>로그인중이에요!</Message>
-    </Container>
+    <>
+      {change ? (
+        <Container>
+          <PuffLoader color="#fff" size={300} speedMultiplier={0.5} />
+          <Message>로그인중이에요!</Message>
+        </Container>
+      ) : (
+        <Navigate to="/" />
+      )}
+    </>
   );
 };
 
