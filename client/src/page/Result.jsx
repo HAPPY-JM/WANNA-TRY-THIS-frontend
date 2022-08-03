@@ -71,7 +71,7 @@ const BtnCollection = styled.div`
 `;
 
 const Result = () => {
-  const { answerData } = useContext(AnswerDataContext);
+  const { answerData,setBarcount} = useContext(AnswerDataContext);
   const [cookies] = useCookies(['jwtToken']);
   const token = cookies.jwtToken;
   const onClickFood = async (foodId) => {
@@ -137,7 +137,7 @@ const Result = () => {
             </BtnCollection>
           </Link>
           <Link to="/Survey">
-            <BtnCollection>메뉴 선택 다시하기</BtnCollection>
+            <BtnCollection onClick={setBarcount(0)}>메뉴 선택 다시하기</BtnCollection>
           </Link>
 
           <SNS />
