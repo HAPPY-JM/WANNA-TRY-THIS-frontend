@@ -43,92 +43,122 @@ const AnswerContainer = styled.div`
   flex-direction: row;
 `;
 
+  const BackBtn = styled.div`
+    cursor: pointer;
+    padding: 2rem;
+  `;
 
-// 아래 객채 형태 state 사용을 줄이는 방향으로 리팩토링 예정
-// const obj = [
-//   {
-//     question: '질문1',
-//     answerType: 'age',
-//     answer: [
-//       {
-//         value: 'young',
-//         text: '20대 이하',
-//       },
-//       {
-//         value: 'middle',
-//         text: '30대~40대',
-//       },
-//     ]
-//   },
-
-
-
-const question_list = [
-  ['나이를 알려주세요.'],
-  ['오늘 기분은 어떤가요?'],
-  ['오늘 땡기는 종류는 무엇인가요?'],
-  ['1인분 예산은 어느 정도 인가요?'],
-];
-
-const answer_list = [
-  [
-    ['young', '20대 이하', 'age'],
-    ['middle', '30대~40대', 'age'],
-    ['old', '50대 이상', 'age'],
-  ],
-  [
-    ['good', '좋음', 'mood'],
-    ['soso', '그저 그럼', 'mood'],
-    ['bad', '나쁨', 'mood'],
-  ],
-  [
-    ['meat', '육류', 'ingredient'],
-    ['sea', '해산물', 'ingredient'],
-    ['etc', '비건', 'ingredient'],
-  ],
-  [
-    ['cheap', '만원 이하', 'money'],
-    ['middle', '만원~3만원', 'money'],
-    ['any', '상관없음', 'money'],
-  ],
-];
+const obj = [
+  {
+    question: '나이를 알려주세요.',
+    answerType: 'age',
+    answer: [
+      {
+        value: 'young',
+        text: '20대 이하',
+      },
+      {
+        value: 'middle',
+        text: '30대~40대',
+      },
+      {
+        value: 'old',
+        text: '50대 이상',
+      }
+    ]
+  },
+    {
+    question: '오늘 기분은 어떤가요?',
+    answerType: 'mood',
+    answer: [
+      {
+        value: 'good',
+        text: '좋음',
+      },
+      {
+        value: 'soso',
+        text: '그저 그럼',
+      },
+      {
+        value: 'bad',
+        text: '나쁨',
+      }
+    ]
+  },
+    {
+    question: '오늘 땡기는 종류는 무엇인가요',
+    answerType: 'ingredient',
+    answer: [
+      {
+        value: 'meat',
+        text: '육류',
+      },
+      {
+        value: 'sea',
+        text: '해산물',
+      },
+      {
+        value: 'etc',
+        text: '비건',
+      }
+    ]
+  },
+        {
+    question: '1인분 예산은 어느 정도 인가요?',
+    answerType: 'money',
+    answer: [
+      {
+        value: 'meacheapt',
+        text: '만원 이하',
+      },
+      {
+        value: 'middle',
+        text: '만원~3만원',
+      },
+      {
+        value: 'any',
+        text: '상관없음',
+      }
+    ]
+  },
+]
 
 const Question = () => {
-  const [question, setQuestion] = useState(question_list[0][0]);
-  const [answers, setAnswer] = useState(answer_list[0]);
-  const { setAnswerData, barcount, setBarcount } =
-    useContext(AnswerDataContext);
 
+
+  const [answers, setAnswers] = useState(obj[0])
+  console.log(answers)
+  const {setAnswerData, barcount, setBarcount } =
+    useContext(AnswerDataContext);
+  
   const onClickSubmit = (e) => {
     const { name, value } = e.target;
-    if (question === question_list[0][0]) {
+    if (answers.question === obj[0].question) {
       setAnswerData((answers) => {
         let data = { ...answers };
         data[name] = value;
         return data;
       });
       setBarcount(barcount + 1);
-      setQuestion(question_list[1][0]);
-      setAnswer(answer_list[1]);
-    } else if (question === question_list[1][0]) {
+      setAnswers(obj[1]);
+    } else if (answers.question === obj[1].question) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+
+        return data;
+      });
+      setBarcount(barcount + 1);
+      setAnswers(obj[2]);
+    } else if (answers.question === obj[2].question) {
       setAnswerData((answers) => {
         let data = { ...answers };
         data[name] = value;
         return data;
       });
       setBarcount(barcount + 1);
-      setQuestion(question_list[2][0]);
-      setAnswer(answer_list[2]);
-    } else if (question === question_list[2][0]) {
-      setAnswerData((answers) => {
-        let data = { ...answers };
-        data[name] = value;
-        return data;
-      });
-      setBarcount(barcount + 1);
-      setQuestion(question_list[3][0]);
-      setAnswer(answer_list[3]);
-    } else if (question === question_list[3][0]) {
+      setAnswers(obj[3]);
+    } else if (answers.question === obj[3].question) {
       setAnswerData((answers) => {
         let data = { ...answers };
         data[name] = value;
@@ -139,46 +169,39 @@ const Question = () => {
   };
 
   const onClickBack = () => {
-    if (question === question_list[1][0]) {
-      setQuestion(question_list[0][0]);
-      setAnswer(answer_list[0]);
+    if (answers.question === obj[1].question) {
+      setAnswers(obj[0])
       setBarcount(barcount - 1);
-    } else if (question === question_list[2][0]) {
-      setQuestion(question_list[1][0]);
-      setAnswer(answer_list[1]);
+    } else if (answers.question === obj[2].question) {
+      setAnswers(obj[1])
       setBarcount(barcount - 1);
-    } else if (question === question_list[3][0]) {
-      setQuestion(question_list[2][0]);
-      setAnswer(answer_list[2]);
+    } else if (answers.question === obj[3].question) {
+      setAnswers(obj[2])
       setBarcount(barcount - 1);
     }
   };
 
-  const BackBtn = styled.div`
-    cursor: pointer;
-    padding: 2rem;
-  `;
 
   const backBtn =
-    question !== '나이를 알려주세요.' ? (
+    answers.question !== '나이를 알려주세요.' ? (
       <BackBtn onClick={onClickBack}>
         <img src="../button-back.png" alt="뒤로가기" width={32} />
       </BackBtn>
     ) : (
-      false
+      null
     );
-
-  const answerBtn = answers.map((answer, idx) =>
-    question !== '1인분 예산은 어느 정도 인가요?' ? (
+  
+  const answerBtn =answers.answer &&answers.answer.map((answer, idx) =>
+    answers.question !== obj[3].question ? (
       <AnswerButton
         whileHover={{ scale: 1.2 }}
         whileTap={{ borderRadius: '50%' }}
         onClick={onClickSubmit}
         key={`answer+${idx}`}
-        value={answer[0]}
-        name={answer[2]}
+        value={answer.value}
+        name={answers.answerType}
       >
-        {answer[1]}
+        {answer.text}
       </AnswerButton>
     ) : (
       <Link to="/Result">
@@ -186,11 +209,11 @@ const Question = () => {
           whileHover={{ scale: 1.2 }}
           whileTap={{ borderRadius: '50%' }}
           onClick={onClickSubmit}
-          key={`answer+${idx}`}
-          value={answer[0]}
-          name={answer[2]}
+          key={`answers+${idx}`}
+          value={answer.value}
+          name={answers.answerType}
         >
-          {answer[1]}
+          {answer.text}
         </AnswerButton>
       </Link>
     ),
@@ -200,9 +223,9 @@ const Question = () => {
     <Container>
       <QuestionView>
         {backBtn}
-        {question}
+        {answers.question} 
       </QuestionView>
-      <AnswerContainer>{answerBtn}</AnswerContainer>
+      <AnswerContainer>{ answerBtn}</AnswerContainer>
     </Container>
   );
 };
