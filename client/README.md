@@ -31,10 +31,8 @@
 
 ## 3. 프로젝트만의 차별점, 기대 효과
 
-
-  우리의 뇌는 사소한 의사결정을 할 때에도 에너지를 마구마구 쓴다고 합니다. <br>
-  사용자의 기분, 선호하는 식재료, 나이 그리고 예산에 맞춰 메뉴를 데이터에서 분류하여 사용자에게 음식메뉴를 제안하는 서비스입니다.
-
+우리의 뇌는 사소한 의사결정을 할 때에도 에너지를 마구마구 쓴다고 합니다. <br>
+사용자의 기분, 선호하는 식재료, 나이 그리고 예산에 맞춰 메뉴를 데이터에서 분류하여 사용자에게 음식메뉴를 제안하는 서비스입니다.
 
 <br>
 <br>
@@ -46,8 +44,6 @@
 - **프론트엔드** <br>
   <img src="/uploads/dce74004fb755de752fcf17282070fc2/image.png" width="100" height="100"> <img src="/uploads/4e86b4d5e7e073433f48171d2697361c/image.png" width="100" height="100"> <img src="/uploads/8c172852289b00c05ef3f4368a49b0c3/image.png" width="100" height="100">
 
-  
-
 - **백엔드** <br>
   <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100"> <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100"> <img src="/uploads/3ff8e4ce35bf43a94f25c0a54e9185c4/image.png" width="100" height="100">
 
@@ -57,7 +53,7 @@
 ### 🎨 기획
 
 - **와이어프레임** <br>
-  [<img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100">](https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962) 
+  [<img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100">](https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962)
   <br>
   <br>
 - **스토리보드 및 유저 시나리오**
@@ -74,59 +70,63 @@
   - 사용자는 마이페이지에서 로그아웃 버튼을 눌러 로그아웃 할 수 있다.
   - 사용자는 마이페이지에서 닉네임을 변경할 수 있다.
   - 사용자는 마이페이지에서 지금까지 추천받은 음식에 대한 통계 데이터를 확인할 수 있다.
-  <br>
-  <br>
+    <br>
+    <br>
 - **포스트맨** <br>
-[<img src="/uploads/d7d75ce5ffc1cf0098d2bf5c05ec65bb/image.png" width="100" height="100">](https://documenter.getpostman.com/view/20119504/UzR1J2S1) 
+  [<img src="/uploads/d7d75ce5ffc1cf0098d2bf5c05ec65bb/image.png" width="100" height="100">](https://documenter.getpostman.com/view/20119504/UzR1J2S1)
   <br>
-  <br>  
- ### 📑 DevOps
+  <br>
+
+### 📑 DevOps
 
 - **애자일 개발 프로세스** <br>
   [<img src="/uploads/701a1a49463ee10b6f674618177c7a5e/image.png" width="100" height="100">](https://busan-team-5.atlassian.net/jira/software/projects/T5/boards/1?selectedIssue=T5-53) [<img src="/uploads/cbe857ea580236fd8adf7a22d385da8a/image.png" width="100" height="100">](https://kdt-gitlab.elice.io/sw_track/class_02_busan/web_project_2/team5)
-
 
   <br>
   <br>
 
 ## 5. 파일 및 폴더 구성
+
 ### Client
-  ```
-src
- ┣ components
- ┃ ┣ Footer.jsx
- ┃ ┣ Header.jsx
- ┃ ┣ Infinite.jsx
- ┃ ┣ LoginComponent.jsx
- ┃ ┣ Logo.jsx
- ┃ ┣ Modal.jsx
- ┃ ┣ ProgressBar.jsx
- ┃ ┣ Question.jsx
- ┃ ┗ SNS.jsx
- ┣ fonts
- ┃ ┣ NEXONLv1GothicBold.ttf
- ┃ ┣ NEXONLv1GothicRegular.ttf
- ┃ ┗ TmoneyRoundWindRegular.ttf
- ┣ page
- ┃ ┣ EmptyPage.jsx
- ┃ ┣ Loading.jsx
- ┃ ┣ Main.jsx
- ┃ ┣ MyPage.jsx
- ┃ ┣ NotFound.jsx
- ┃ ┣ Result.jsx
- ┃ ┗ Survey.jsx
- ┣ styles
- ┃ ┗ login.scss
- ┣ App.jsx
- ┣ App.test.js
- ┣ GlobalStyle.jsx
- ┣ index.css
- ┣ index.js
- ┣ logo.svg
- ┣ reportWebVitals.js
- ┗ setupTests.js
+
 ```
+src
+┣ components
+┃ ┣ Footer.jsx
+┃ ┣ Header.jsx
+┃ ┣ Infinite.jsx
+┃ ┣ LoginComponent.jsx
+┃ ┣ Logo.jsx
+┃ ┣ Modal.jsx
+┃ ┣ ProgressBar.jsx
+┃ ┣ Question.jsx
+┃ ┗ SNS.jsx
+┣ fonts
+┃ ┣ NEXONLv1GothicBold.ttf
+┃ ┣ NEXONLv1GothicRegular.ttf
+┃ ┗ TmoneyRoundWindRegular.ttf
+┣ page
+┃ ┣ EmptyPage.jsx
+┃ ┣ Loading.jsx
+┃ ┣ Main.jsx
+┃ ┣ MyPage.jsx
+┃ ┣ NotFound.jsx
+┃ ┣ Result.jsx
+┃ ┗ Survey.jsx
+┣ styles
+┃ ┗ login.scss
+┣ App.jsx
+┣ App.test.js
+┣ GlobalStyle.jsx
+┣ index.css
+┣ index.js
+┣ logo.svg
+┣ reportWebVitals.js
+┗ setupTests.js
+```
+
 ### Back
+
 ```
 src
  ┣ db
