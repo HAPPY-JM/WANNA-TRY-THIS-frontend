@@ -4,7 +4,6 @@ import Header from '../components/Header';
 import { useQuery } from 'react-query';
 import axios from 'axios';
 
-
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -31,7 +30,6 @@ const MyPage = () => {
       onError: (e) => {
         console.log(e.message);
       },
-
     },
   );
 

@@ -2,11 +2,12 @@ import React from 'react';
 import { useQuery } from 'react-query';
 
 export const LoginComponent = () => {
-
   const { data } = useQuery(
     'login',
     async () => {
-      return await fetch('http://kdt-sw2-busan-team05.elicecoding.com:5002/api/auth/kakao');
+      return await fetch(
+        'http://kdt-sw2-busan-team05.elicecoding.com:5002/api/auth/kakao',
+      );
     },
     {
       onSuccess: (data) => {

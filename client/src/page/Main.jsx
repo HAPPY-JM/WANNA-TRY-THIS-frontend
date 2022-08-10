@@ -59,7 +59,6 @@ const Main = () => {
           />
         </div>
         <ButtonContainer>
-
           <Link to="/Survey">
             <MainButton
               whileHover={{ scale: 1.2 }}

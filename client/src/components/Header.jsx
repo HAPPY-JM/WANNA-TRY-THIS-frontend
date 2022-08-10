@@ -31,30 +31,22 @@ const NickNameContainer = styled.div`
   margin-right: 1rem;
 `;
 
-
-
-
-
 const Header = () => {
   const path_list = ['/', '/Survey', '/Result', 'MyPage'];
   const [cookies, removeCookie] = useCookies(['jwtToken']);
   const [isLoginNow, setIsLoginNow] = useState(false);
-  const [userId,setUserId]=useState("")
+  const [userId, setUserId] = useState('');
   const token = cookies.jwtToken;
 
-
-
-    fetch('http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/', {
-      headers: {
+  fetch('http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/', {
+    headers: {
       'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-    }
-    }).then(res => res.json())
-      .then(data => setUserId(data.userNick)
+      Authorization: `Bearer ${token}`,
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => setUserId(data.userNick));
 
-      )
-  
-  
   useEffect(() => {
     if (!token || token === 'undefined') {
       setIsLoginNow(false);
@@ -76,7 +68,8 @@ const Header = () => {
       <Logo />
       <LoginContainer>
         <NickNameContainer>
-       {userId}{isLoginNow?"님 하이":null}
+          {userId}
+          {isLoginNow ? '님 하이' : null}
         </NickNameContainer>
         {isLoginNow ? <button onClick={userLogout}>Log Out</button> : <Modal />}
       </LoginContainer>
