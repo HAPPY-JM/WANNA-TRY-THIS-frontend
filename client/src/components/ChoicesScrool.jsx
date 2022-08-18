@@ -1,6 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import useIntersect from './useIntersect';
 import axios from 'axios';
 
 const ChoicesScrool = () => {
@@ -13,7 +12,6 @@ const ChoicesScrool = () => {
       `http://localhost:5000/api/food/perPage?page=${page}`,
     );
 
-    // console.log(res.data.productsPerPage)
     setList((p) => [...p, ...res.data.productsPerPage]);
     setLoading(true);
   };
@@ -51,7 +49,7 @@ const ChoicesScrool = () => {
       <div>loading</div>
       <button onClick={loadMore} ref={pageEnd}>
         {' '}
-        more
+        {/* <img src='../Loading.gif' /> */}
       </button>
     </div>
   );

@@ -38,7 +38,7 @@ const Header = () => {
   const [userId, setUserId] = useState('');
   const token = cookies.jwtToken;
 
-  fetch('http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/', {
+  fetch('http://localhost:5000/api/user/', {
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
