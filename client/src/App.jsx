@@ -28,6 +28,8 @@ const App = () => {
     age: '',
     money: '',
     ingredient: '',
+    nation: '',
+    type: '',
   });
   const [barcount, setBarcount] = useState(0);
 

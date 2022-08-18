@@ -7,7 +7,7 @@ function ProgressBar() {
 
   return (
     <Container>
-      <Progress width={(barcount / 4) * 100 + '%'} />
+      <Progress width={(barcount / 6) * 100 + '%'} />
     </Container>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AnswerDataContext } from '../App';
 import { useQuery } from 'react-query';
@@ -70,8 +70,10 @@ const BtnCollection = styled.div`
 
 const Result = () => {
   const { answerData, setBarcount } = useContext(AnswerDataContext);
+  const [answers, setAnswer] = useState({});
   const [cookies] = useCookies(['jwtToken']);
   const token = cookies.jwtToken;
+  console.log(answerData);
   const onClickFood = async (foodId) => {
     const addFood = {
       addFoodId: foodId,
@@ -88,37 +90,52 @@ const Result = () => {
       .then((data) => console.log(data))
       .then(() => alert('정상적으로 통계에 반영되었습니다.'));
   };
-  const { data, isLoading, isError, error } = useQuery(
-    'super-name',
-    () => {
-      return axios.get(
-        `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
-      );
-    },
-    { staleTime: Infinity },
-  );
-  if (isLoading) {
-    return <h1>로딩중</h1>;
-  }
-  if (isError) {
-    return <h1>{error}</h1>;
-  }
+  // `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`
+  // const { data, isLoading, isError, error } = useQuery(
+  //   'super-name',
+  //   () => {
+  //     return axios.get(
+  //       `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}`,
+  //     );
+  //   },
+  //   { staleTime: Infinity },
+  // );
+  // if (isLoading) {
+  //   return <h1>로딩중</h1>;
+  // }
+  // if (isError) {
+  //   return <h1>{error}</h1>;
+  // }
 
-  const randomNum = Math.floor(Math.random() * data.data.length);
-  console.log(data.data[randomNum]._id);
+  useEffect(() => {
+    const answerdata = () => {
+      return axios
+        .get(
+          `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}&nation=${answerData.nation}&type=${answerData.type}`,
+        )
+        .then((res) => {
+          res.json();
+        })
+        .then((data) => setAnswer({ data }));
+    };
+  }, [answerData]);
+  console.log(answers);
+
+  const randomNum = Math.floor(Math.random() * answers.data.length);
+  // console.log(data.data[randomNum]._id);
   return (
     <>
       <Container>
         <ResultBox>
           {
             <div>
-              <FoodImg src={data.data[randomNum].img} />
+              <FoodImg src={answers.data[randomNum].img} />
               <ResultText>
-                <div key={data.data[randomNum].name}>
-                  {data.data[randomNum].name}
+                <div key={answers.data[randomNum].name}>
+                  {answers.data[randomNum].name}
                 </div>
-                <span key={data.data[randomNum].comment}>
-                  {data.data[randomNum].comment}
+                <span key={answers.data[randomNum].comment}>
+                  {answers.data[randomNum].comment}
                 </span>
               </ResultText>
             </div>
@@ -128,7 +145,7 @@ const Result = () => {
           <Link to="/">
             <BtnCollection
               onClick={() => {
-                onClickFood(data.data[randomNum]._id);
+                onClickFood(answers.data[randomNum]._id);
               }}
             >
               이 메뉴로 결정하기

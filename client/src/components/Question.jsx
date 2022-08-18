@@ -120,12 +120,56 @@ const obj = [
       },
     ],
   },
+  {
+    question: '음식 취향이 어떻게 되세요? ',
+    answerType: 'nation',
+    answer: [
+      {
+        value: 'kor',
+        text: '한식',
+      },
+      {
+        value: 'chi',
+        text: '중식',
+      },
+      {
+        value: 'jap',
+        text: '일식',
+      },
+      {
+        value: 'west',
+        text: '양식',
+      },
+      {
+        value: 'any',
+        text: '아무거나',
+      },
+    ],
+  },
+  {
+    question: '오늘 땡기는 종류는 무엇인가요?',
+    answerType: 'type',
+    answer: [
+      {
+        value: 'noodle',
+        text: '면',
+      },
+      {
+        value: 'rice',
+        text: '밥',
+      },
+      {
+        value: 'etc',
+        text: '그 외',
+      },
+    ],
+  },
 ];
 
 const Question = () => {
   const [answers, setAnswers] = useState(obj[0]);
   console.log(answers);
-  const { setAnswerData, barcount, setBarcount } =
+  const { setAnswerData, barcount, setBarcount, answerData } =
     useContext(AnswerDataContext);
 
   const onClickSubmit = (e) => {
@@ -162,9 +206,24 @@ const Question = () => {
         return data;
       });
       setBarcount(barcount + 1);
+      setAnswers(obj[4]);
+    } else if (answers.question === obj[4].question) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+        return data;
+      });
+      setBarcount(barcount + 1);
+      setAnswers(obj[5]);
+    } else if (answers.question === obj[5].question) {
+      setAnswerData((answers) => {
+        let data = { ...answers };
+        data[name] = value;
+        return data;
+      });
+      setBarcount(barcount + 1);
     }
   };
-
   const onClickBack = () => {
     if (answers.question === obj[1].question) {
       setAnswers(obj[0]);
@@ -174,6 +233,12 @@ const Question = () => {
       setBarcount(barcount - 1);
     } else if (answers.question === obj[3].question) {
       setAnswers(obj[2]);
+      setBarcount(barcount - 1);
+    } else if (answers.question === obj[4].question) {
+      setAnswers(obj[3]);
+      setBarcount(barcount - 1);
+    } else if (answers.question === obj[5].question) {
+      setAnswers(obj[4]);
       setBarcount(barcount - 1);
     }
   };
@@ -188,7 +253,7 @@ const Question = () => {
   const answerBtn =
     answers.answer &&
     answers.answer.map((answer, idx) =>
-      answers.question !== obj[3].question ? (
+      answers.question !== obj[5].question ? (
         <AnswerButton
           whileHover={{ scale: 1.2 }}
           whileTap={{ borderRadius: '50%' }}
