@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import { useQuery } from 'react-query';
 import axios from 'axios';
+import PieChart from '../components/PieChart';
 
 const Container = styled.div`
   display: flex;
@@ -14,28 +15,29 @@ const Container = styled.div`
 `;
 
 const MyPage = () => {
-  const { data, isError, error } = useQuery(
-    'userID',
-    async () => {
-      const response = await axios.get(
-        'http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/62de7d5a09eb4d48365617c9',
-      );
-      const resData = response.data;
-      return resData;
-    },
-    {
-      onSuccess: (data) => {
-        return data;
-      },
-      onError: (e) => {
-        console.log(e.message);
-      },
-    },
-  );
+  // const { data, isError, error } = useQuery(
+  //   'userID',
+  //   async () => {
+  //     const response = await axios.get(
+  //       'http://kdt-sw2-busan-team05.elicecoding.com:5002/api/user/62de7d5a09eb4d48365617c9',
+  //     );
+  //     const resData = response.data;
+  //     return resData;
+  //   },
+  //   {
+  //     onSuccess: (data) => {
+  //       return data;
+  //     },
+  //     onError: (e) => {
+  //       console.log(e.message);
+  //     },
+  //   },
+  // );
 
   return (
     <Container>
-      <Header />
+      {/* <Header /> */}
+      <PieChart/>
     </Container>
   );
 };
