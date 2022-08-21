@@ -37,7 +37,7 @@ const MyPage = () => {
   return (
     <Container>
       {/* <Header /> */}
-      <PieChart/>
+      <PieChart />
     </Container>
   );
 };
