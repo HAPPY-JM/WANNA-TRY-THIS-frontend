@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as chartJS } from 'chart.js/auto';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
 
 const nationData = [
   {
     id: 1,
     name: '한식',
-    num: 2,
+    num: 8,
   },
   {
     id: 2,
@@ -25,12 +27,25 @@ const nationData = [
   },
   {
     id: 5,
-    name: '잡식',
-    num: 2,
+    name: 'etc',
+    num: 88,
   },
 ];
 
 const PieChart = () => {
+  const [cookies] = useCookies(['jwtToken']);
+  const token = cookies.jwtToken;
+  const [nation, setNation] = useState();
+
+  axios
+    .get('http://localhost:5000/api/user/6309f2ca439242c9a34d4fb1', {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((res) => console.log(res));
+  // console.log()
+
   const [chartData] = useState({
     labels: nationData.map((data) => data.name),
     datasets: [
@@ -56,7 +71,11 @@ const PieChart = () => {
     borderWidth: 1,
   });
 
-  return <Pie data={chartData} />;
+  return (
+    <div>
+      <Pie data={chartData} />
+    </div>
+  );
 };
 
 export default PieChart;

@@ -32,9 +32,9 @@ const NickNameContainer = styled.div`
 `;
 
 const Header = () => {
-  const path_list = ['/', '/Survey', '/Result', 'MyPage'];
-  const [cookies, removeCookie] = useCookies(['jwtToken']);
+  const path_list = ['/', '/Survey', '/Result', '/MyPage', '/Choices'];
   const [isLoginNow, setIsLoginNow] = useState(false);
+  const [cookies, removeCookie] = useCookies(['jwtToken']);
   const [userId, setUserId] = useState('');
   const token = cookies.jwtToken;
 

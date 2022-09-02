@@ -70,7 +70,7 @@ const BtnCollection = styled.div`
 
 const Result = () => {
   const { answerData, setBarcount } = useContext(AnswerDataContext);
-  const [answers, setAnswer] = useState({});
+  const [answers, setAnswer] = useState([]);
   const [cookies] = useCookies(['jwtToken']);
   const token = cookies.jwtToken;
   console.log(answerData);
@@ -107,22 +107,17 @@ const Result = () => {
   //   return <h1>{error}</h1>;
   // }
 
-  useEffect(() => {
-    const answerdata = () => {
-      return axios
-        .get(
-          `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}&nation=${answerData.nation}&type=${answerData.type}`,
-        )
-        .then((res) => {
-          res.json();
-        })
-        .then((data) => setAnswer({ data }));
-    };
-  }, [answerData]);
-  console.log(answers);
+  axios
+    .get(
+      `http://localhost:5000/api/food/result?mood=${answerData.mood}&age=${answerData.age}&money=${answerData.money}&ingredient=${answerData.ingredient}&nation=${answerData.nation}&type=${answerData.type}`,
+    )
+    // .then((res) => {
+    //   res.json();
+    // })
+    .then((data) => setAnswer([...answers, data]));
 
   const randomNum = Math.floor(Math.random() * answers.data.length);
-  // console.log(data.data[randomNum]._id);
+
   return (
     <>
       <Container>

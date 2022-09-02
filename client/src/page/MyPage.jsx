@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
-import { useQuery } from 'react-query';
 import axios from 'axios';
 import PieChart from '../components/PieChart';
 

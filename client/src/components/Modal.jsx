@@ -50,7 +50,7 @@ const Modal = () => {
           <Container>
             <div>
               <a
-                href="http://kdt-sw2-busan-team05.elicecoding.com:5002/api/auth/kakao"
+                href="https://wanna-try-this-team5.herokuapp.com/api/auth/kakao"
                 rel="noreferrer"
               >
                 <ButtonContainer
@@ -73,10 +73,7 @@ const Modal = () => {
                   value="naver"
                 />
               </a>
-              <a
-                href="http://kdt-sw2-busan-team05.elicecoding.com:5002/api/auth/google"
-                rel="noreferrer"
-              >
+              <a href="http://localhost:5000/api/auth/google" rel="noreferrer">
                 <ButtonContainer
                   whileHover={{ scale: 1.2 }}
                   className="googleLogo"
