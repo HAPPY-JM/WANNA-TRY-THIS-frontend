@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { Pie } from 'react-chartjs-2';
 import { Chart as chartJS } from 'chart.js/auto';
 import axios from 'axios';
@@ -35,17 +35,35 @@ const nationData = [
 const PieChart = () => {
   const [cookies] = useCookies(['jwtToken']);
   const token = cookies.jwtToken;
-  const [nation, setNation] = useState();
+    const [nation, setNation] = useState();
+    const getUserData = async () => {
+     const UserData =await axios.get('http://localhost:5000/api/user/', {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+     })
+        setNation(UserData.data.parsedUserInfo)
+    }
+    useEffect(() => {
+        getUserData()
+    },[])
+//     useEffect(() => {
+//             axios
+//           .get('http://localhost:5000/api/user/', {
+//             headers: {
+//               Authorization: `Bearer ${token}`,
+//             },
+//           })
+//             .then((res) =>setNation(res.data.parsedUserInfo.mostRecommandedFood))
+// },[])
+        //   console.log(res.data.parsedUserInfo.mostRecommandedFood));
+    const chartResult = async() => {
+    
 
-  axios
-    .get('http://localhost:5000/api/user/6309f2ca439242c9a34d4fb1', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => console.log(res));
-  // console.log()
+        chartResult()
 
+    }
+    console.log()
   const [chartData] = useState({
     labels: nationData.map((data) => data.name),
     datasets: [
