@@ -1,5 +1,6 @@
 <div align="center"> <h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
-<img src="/uploads/78214311e4b867921fcea7b4ad2c03d1/image.png" width="50%" height="50%"> <br> <br>
+<img src="https://user-images.githubusercontent.com/102483942/208353350-84256b46-783c-4496-9ec7-dc1d504fc9a9.png" width="50%" height="50%"> <br> <br>
+
 <h2>서비스 링크: [이거머글랭?](http://kdt-sw2-busan-team05.elicecoding.com/)</h2> </div>
 <br>
 <br>
@@ -26,7 +27,7 @@
   1.  추천받은 음식 공유
   2.  마이페이지
   3.  무한 스크롤
-
+<img src="https://user-images.githubusercontent.com/102483942/208255245-a4068e6b-0a16-4bff-8265-786512bc218c.png" width="50%" height="50%">
 <br>
 
 ## 3. 프로젝트만의 차별점, 기대 효과
@@ -44,12 +45,11 @@
 ### 🔧 사용 스택
 
 - **프론트엔드** <br>
-  <img src="/uploads/dce74004fb755de752fcf17282070fc2/image.png" width="100" height="100"> <img src="/uploads/4e86b4d5e7e073433f48171d2697361c/image.png" width="100" height="100"> <img src="/uploads/8c172852289b00c05ef3f4368a49b0c3/image.png" width="100" height="100">
+  <img src="https://user-images.githubusercontent.com/102483942/208353657-402ed134-d20e-42ee-87d5-fd8f43ae8a0c.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/102483942/208353805-7c2e2c49-f253-4b93-8238-46e349e716ac.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/102483942/208353898-3240f3f2-fdc7-416c-a7d9-1f1159a2a599.png" width="100" height="100">
 
-  
 
 - **백엔드** <br>
-  <img src="/uploads/9fae9428dc189946ac1a5201ee7c2e39/image.png" width="100" height="100"> <img src="/uploads/5f9f94f9d796c9819f4fbc8660be8cc1/image.png" width="100" height="100"> <img src="/uploads/567daf0cc32690c11550bfdaca7d2a09/image.png" width="100" height="100"> <img src="/uploads/3ff8e4ce35bf43a94f25c0a54e9185c4/image.png" width="100" height="100">
+  <img src="https://user-images.githubusercontent.com/102483942/208354318-b3da0b0c-29fe-4417-aa97-6ef1468312b5.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/102483942/208354381-54d1feed-18df-44f0-85a0-36573f529f48.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/102483942/208354445-ae45ab8d-d720-41dc-9650-276c1900ef06.png" width="100" height="100"> <img src="https://user-images.githubusercontent.com/102483942/208354478-48ef1060-d5b4-47d2-a100-9edd348ddfa3.png" width="100" height="100">
 
   <br>
   <br>
@@ -57,7 +57,7 @@
 ### 🎨 기획
 
 - **와이어프레임** <br>
-  [<img src="/uploads/a71289933b6985451a5185a7d272057f/image.png" width="100" height="100">](https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962) 
+  [<img src="https://user-images.githubusercontent.com/102483942/208355481-570a6710-a923-4fa0-8c7c-d14600df1e75.png" width="100" height="100">](https://www.figma.com/file/eaxRhh4SX5FSUEId05z0fz/5%ED%8C%80_%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=50%3A1962) 
   <br>
   <br>
 - **스토리보드 및 유저 시나리오**
@@ -77,13 +77,13 @@
   <br>
   <br>
 - **포스트맨** <br>
-[<img src="/uploads/d7d75ce5ffc1cf0098d2bf5c05ec65bb/image.png" width="100" height="100">](https://documenter.getpostman.com/view/20119504/UzR1J2S1) 
+[<img src="https://user-images.githubusercontent.com/102483942/208355173-93a20ab9-9194-4265-ab13-39e7ebf0b89a.png" width="100" height="100">](https://documenter.getpostman.com/view/20119504/UzR1J2S1) 
   <br>
   <br>  
  ### 📑 DevOps
 
 - **애자일 개발 프로세스** <br>
-  [<img src="/uploads/701a1a49463ee10b6f674618177c7a5e/image.png" width="100" height="100">](https://busan-team-5.atlassian.net/jira/software/projects/T5/boards/1?selectedIssue=T5-53) [<img src="/uploads/cbe857ea580236fd8adf7a22d385da8a/image.png" width="100" height="100">](https://kdt-gitlab.elice.io/sw_track/class_02_busan/web_project_2/team5)
+  [<img src="https://user-images.githubusercontent.com/102483942/208355300-c5afd263-f683-48a6-aed8-d14ce8c20da6.png" width="100" height="100">](https://busan-team-5.atlassian.net/jira/software/projects/T5/boards/1?selectedIssue=T5-53) [<img src="https://user-images.githubusercontent.com/102483942/208355562-653780ad-b19b-4f1f-aea7-6de55ba27142.png" width="100" height="100">](https://kdt-gitlab.elice.io/sw_track/class_02_busan/web_project_2/team5)
 
 
   <br>
