@@ -1,7 +1,14 @@
 <div align="center"> <h1> ❔질문에 대한 응답을 바탕으로 식사 메뉴를 추천해주는 웹 서비스❕</h1> <br>
 <img src="https://user-images.githubusercontent.com/102483942/208353350-84256b46-783c-4496-9ec7-dc1d504fc9a9.png" width="50%" height="50%"> <br> <br>
 
-<h2>서비스 링크: [이거머글랭?](http://kdt-sw2-busan-team05.elicecoding.com/)</h2> </div>
+<h2>서비스 링크: (http://kdt-sw2-busan-team05.elicecoding.com/)</h2>
+호스팅이 만료되어 정상적인 작동을 확인하기 위해서는 클론 후 vscode에서 npm start 후 localhost로 확인해주시기 바랍니다.
+  <br>
+  <br>
+<h2>Notion 링크: (https://wanna-try-this.notion.site/239bac740672435b8717a38de618bd2b) </h2>
+프로젝트 소개 및 시연영상이 첨부되어있습니다.
+</div>
+
 <br>
 <br>
 
